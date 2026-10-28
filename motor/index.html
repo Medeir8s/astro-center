@@ -39,6 +39,13 @@ body{background:var(--ink);color:var(--pearl);font-family:var(--body);font-size:
 .btn.ghost{background:transparent;color:var(--pearl);border:1px solid var(--line);box-shadow:none}
 .err{color:#ff9ab0;font-weight:700;font-size:14px;min-height:1em;margin:0}
 .manual{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.citywrap{position:relative}
+.citylist{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;background:#160f33;border:1px solid var(--line);border-radius:12px;overflow:hidden;max-height:260px;overflow-y:auto;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.citylist button{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);color:var(--pearl);font:inherit;font-size:15px;padding:11px 12px;cursor:pointer}
+.citylist button:last-child{border-bottom:none}
+.citylist button:hover,.citylist button:focus{background:var(--ink-3)}
+.citylist small{color:var(--muted);font-size:12px;flex:0 0 auto}
+.mutebtn{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;z-index:40;width:40px;height:40px;border-radius:50%;background:#1c123fcc;border:1px solid var(--line);color:var(--pearl);font-size:18px;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px)}
 
 /* ---------- Leitura ---------- */
 .reading{display:none}
@@ -100,12 +107,10 @@ hr{border:none;border-top:1px solid var(--line);margin:22px 0}
     <div class="istep" data-step="3" hidden>
       <div class="eyebrow">Capítulo IV · O Lugar</div>
       <h1>Em que terra você nasceu?</h1>
-      <div class="field"><label for="fCity">Cidade de nascimento</label>
-        <select id="fCity"></select></div>
-      <div class="manual" id="manual" style="display:none">
-        <div class="field"><label for="fLat">Latitude</label><input id="fLat" type="number" step="0.0001" placeholder="-25.43"></div>
-        <div class="field"><label for="fLon">Longitude</label><input id="fLon" type="number" step="0.0001" placeholder="-49.27"></div>
-      </div>
+      <div class="field citywrap"><label for="fCity">Cidade de nascimento</label>
+        <input id="fCity" autocomplete="off" placeholder="Digite a cidade, ex.: Curitiba, Lisboa, Tóquio" role="combobox" aria-autocomplete="list" aria-controls="cityList">
+        <div class="citylist" id="cityList" role="listbox" hidden></div>
+        <span class="hint">Mais de 26 mil cidades. Se a sua não aparecer, escolha a mais próxima. Dados: GeoNames (CC BY 4.0).</span></div>
       <p class="info" id="iCity"></p>
     </div>
 
@@ -127,7 +132,9 @@ hr{border:none;border-top:1px solid var(--line);margin:22px 0}
   </div>
 </div>
 
+<button class="mutebtn" id="mute" aria-label="Som" title="Som">🔊</button>
 <script src="../app/astronomy.browser.min.js"></script>
+<script src="cidades.js"></script>
 <script src="textos.js"></script>
 <script>
 "use strict";
@@ -152,16 +159,6 @@ const ORB=[10,5,3,10,5,3,10,5,3,10,5,3];
 const ASP_ORDER=['sun','moon','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto'];
 const WEIGHT={sun:3,moon:3,asc:3,mercury:2,venus:2,mars:2,jupiter:1,saturn:1,uranus:1,neptune:1,pluto:1,mc:1};
 const STARS=Array.from({length:70},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.4+.3,p:Math.random()*6}));
-const CITIES=[
- ['Curitiba',-25.4284,-49.2733,'America/Sao_Paulo'],['São Paulo',-23.5505,-46.6333,'America/Sao_Paulo'],
- ['Rio de Janeiro',-22.9068,-43.1729,'America/Sao_Paulo'],['Belo Horizonte',-19.9167,-43.9345,'America/Sao_Paulo'],
- ['Porto Alegre',-30.0346,-51.2177,'America/Sao_Paulo'],['Florianópolis',-27.5949,-48.5482,'America/Sao_Paulo'],
- ['Salvador',-12.9777,-38.5016,'America/Bahia'],['Recife',-8.0476,-34.8770,'America/Recife'],
- ['Fortaleza',-3.7319,-38.5267,'America/Fortaleza'],['Brasília',-15.7939,-47.8828,'America/Sao_Paulo'],
- ['Manaus',-3.1190,-60.0217,'America/Manaus'],['Belém',-1.4558,-48.4902,'America/Belem'],
- ['Goiânia',-16.6869,-49.2648,'America/Sao_Paulo'],['Campo Grande',-20.4697,-54.6201,'America/Campo_Grande'],
- ['Lisboa',38.7223,-9.1393,'Europe/Lisbon']
-];
 
 /* ---------- astronomia ---------- */
 const HAS_ASTRO=typeof window.Astronomy!=='undefined';
@@ -289,6 +286,30 @@ function angLerp(a,b,k){let d=((b-a)%360+540)%360-180;return a+d*k;}
 function iresize(){const r=ic.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);if(Math.abs(r.width-IW)<1&&Math.abs(r.height-IH)<1)return;IW=r.width;IH=r.height;ic.width=IW*dpr;ic.height=IH*dpr;ix.setTransform(dpr,0,0,dpr,0,0);}
 function glow(x,y,r,col){const g=ix.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,col);g.addColorStop(1,col.slice(0,7)+'00');ix.fillStyle=g;ix.beginPath();ix.arc(x,y,r,0,7);ix.fill();}
 function starsBg(t,a){for(const s of STARS){ix.fillStyle=`rgba(245,236,230,${(.25+.3*Math.sin(t*1.3+s.p))*a})`;ix.beginPath();ix.arc(s.x*IW,s.y*IH,s.r,0,7);ix.fill();}}
+/* continentes (longitude, latitude) — contornos grosseiros p/ globo estilizado */
+const CONT=[
+ [[-81,9],[-60,8],[-50,0],[-35,-7],[-39,-20],[-54,-34],[-71,-52],[-73,-30],[-81,-4]],
+ [[-12,34],[12,36],[33,30],[44,12],[41,-5],[33,-22],[20,-35],[12,-24],[8,5],[-16,12]],
+ [[-166,60],[-128,54],[-95,49],[-78,44],[-58,47],[-80,24],[-106,23],[-124,34],[-160,62]],
+ [[-9,40],[22,46],[62,52],[104,56],[142,48],[132,34],[100,20],[74,20],[44,30],[28,38]],
+ [[114,-19],[136,-12],[151,-26],[145,-38],[119,-33],[112,-24]]
+];
+function drawEarth(cx,cy,R,t,focus){
+  const rad=Math.PI/180,lon0=focus?focus.lon:((-t*16)%360),lat0=(focus?Math.max(-35,Math.min(35,focus.lat)):-10)*rad;
+  const proj=(lon,lat)=>{const dl=(lon-lon0)*rad,la=lat*rad;const cosc=Math.sin(lat0)*Math.sin(la)+Math.cos(lat0)*Math.cos(la)*Math.cos(dl);return[cx+R*Math.cos(la)*Math.sin(dl),cy-R*(Math.cos(lat0)*Math.sin(la)-Math.sin(lat0)*Math.cos(la)*Math.cos(dl)),cosc];};
+  glow(cx,cy,R*1.7,'#6fb6d844');
+  ix.save();ix.beginPath();ix.arc(cx,cy,R,0,7);ix.clip();
+  const oc=ix.createRadialGradient(cx-R*.35,cy-R*.4,R*.1,cx,cy,R*1.15);oc.addColorStop(0,'#5fa8e0');oc.addColorStop(.6,'#2f72b8');oc.addColorStop(1,'#123a6b');ix.fillStyle=oc;ix.fillRect(cx-R,cy-R,R*2,R*2);
+  for(const poly of CONT){let started=false,any=false;ix.beginPath();for(const[lo,la]of poly){const[x,y,c]=proj(lo,la);if(c>-.1){any=true;if(!started){ix.moveTo(x,y);started=true;}else ix.lineTo(x,y);}}if(any){ix.closePath();const cg=ix.createLinearGradient(cx-R,cy-R,cx+R,cy+R);cg.addColorStop(0,'#7cae5a');cg.addColorStop(1,'#4f7d3a');ix.fillStyle=cg;ix.fill();}}
+  // terminador (noite à direita-baixo)
+  const sh=ix.createRadialGradient(cx-R*.4,cy-R*.5,R*.2,cx+R*.5,cy+R*.6,R*1.5);sh.addColorStop(0,'rgba(0,0,0,0)');sh.addColorStop(.7,'rgba(6,8,24,.25)');sh.addColorStop(1,'rgba(4,6,20,.78)');ix.fillStyle=sh;ix.fillRect(cx-R,cy-R,R*2,R*2);
+  // brilho especular
+  const hl=ix.createRadialGradient(cx-R*.38,cy-R*.42,0,cx-R*.38,cy-R*.42,R*.7);hl.addColorStop(0,'rgba(255,255,255,.4)');hl.addColorStop(1,'rgba(255,255,255,0)');ix.fillStyle=hl;ix.fillRect(cx-R,cy-R,R*2,R*2);
+  ix.restore();
+  ix.strokeStyle='#bfe6ff55';ix.lineWidth=1.2;ix.beginPath();ix.arc(cx,cy,R,0,7);ix.stroke();
+  if(focus){const[mx,my]=proj(focus.lon,focus.lat);return[mx,my];}
+  return null;
+}
 function zodiacRing(cx,cy,rx,ry,rot,hi){
   ix.strokeStyle='#41345a';ix.lineWidth=1;
   ix.beginPath();ix.ellipse(cx,cy,rx+14,ry+14*(ry/rx),0,0,7);ix.stroke();
@@ -337,21 +358,21 @@ function sceneTime(t){
   ix.strokeStyle='#f0a6b6';ix.lineWidth=1.5;ix.beginPath();ix.moveTo(0,cy);ix.lineTo(IW,cy);ix.stroke();
   ix.font='800 10px Nunito,sans-serif';ix.fillStyle='#f0a6b6';ix.textAlign='left';ix.fillText('ASC · leste',8,cy-9);ix.textAlign='right';ix.fillText('oeste · DSC',IW-8,cy-9);
   ix.textAlign='center';ix.fillStyle=day>.5?'#17111f':'#e8c36a';ix.fillText('MC',cx,cy-R*1.25);ix.fillText('IC',cx,cy+R*1.25);
-  glow(cx,cy,re*1.6,'#86d3c633');const eg=ix.createRadialGradient(cx-re*.3,cy-re*.3,re*.2,cx,cy,re);eg.addColorStop(0,'#8fd0e8');eg.addColorStop(1,'#2d5f86');ix.fillStyle=eg;ix.beginPath();ix.arc(cx,cy,re,0,7);ix.fill();
-  ix.fillStyle='#b9cc86cc';ix.beginPath();ix.ellipse(cx-re*.2,cy+re*.1,re*.35,re*.5,.4,0,7);ix.fill();
+  drawEarth(cx,cy,re,t);
   ix.strokeStyle='#e8c36a55';ix.lineWidth=1;ix.beginPath();ix.moveTo(cx,cy);ix.lineTo(sx,sy);ix.stroke();
   glow(sx,sy,40,'#ffd98a99');ix.fillStyle='#ffd98a';ix.beginPath();ix.arc(sx,sy,13,0,7);ix.fill();
   ix.fillStyle='#17111f';ix.font='15px system-ui,sans-serif';ix.textAlign='center';ix.textBaseline='middle';ix.fillText('☉'+T,sx,sy+1);
   const time=$('fTime').value;if(time){ix.fillStyle=day>.5?'#17111f':'#f5ece6';ix.font='26px "Marcellus SC",Georgia,serif';ix.textAlign='left';ix.textBaseline='top';ix.fillText(time.replace(':','h'),14,12);}
 }
 function scenePlace(t){
-  starsBg(t,1);const cx=IW/2,cy=IH*.5,r=Math.min(IW,IH)*.34;zodiacRing(cx,cy,r,r*.9,t*2,-1);
-  const eg=ix.createRadialGradient(cx-14,cy-14,6,cx,cy,34);eg.addColorStop(0,'#8fd0e8');eg.addColorStop(1,'#2d5f86');ix.fillStyle=eg;ix.beginPath();ix.arc(cx,cy,34,0,7);ix.fill();
-  ix.fillStyle='#b9cc86cc';ix.beginPath();ix.ellipse(cx-8,cy+6,16,22,.5,0,7);ix.fill();ix.beginPath();ix.ellipse(cx+14,cy-10,9,12,-.3,0,7);ix.fill();
-  const sel=$('fCity'),cityName=sel.value==='manual'?'Local personalizado':(CITIES[+sel.value]||['' ])[0];
-  const pu=(t*1.1)%1;ix.strokeStyle=`rgba(240,166,182,${1-pu})`;ix.lineWidth=2;ix.beginPath();ix.arc(cx+10,cy-6,6+pu*22,0,7);ix.stroke();
-  glow(cx+10,cy-6,14,'#e8c36a99');ix.fillStyle='#e8c36a';ix.font='15px system-ui,sans-serif';ix.textAlign='center';ix.textBaseline='middle';ix.fillText('✦',cx+10,cy-6);
-  ix.fillStyle='#f5ece6';ix.font='18px "Marcellus SC",Georgia,serif';ix.textBaseline='top';ix.fillText(cityName,cx,cy+44);
+  starsBg(t,1);const cx=IW/2,cy=IH*.46,R=Math.min(IW*.3,IH*.42);
+  zodiacRing(cx,cy,R*1.5,R*1.35,t*2,-1);
+  const city=window.SELCITY,focus=city?{lon:city[2],lat:city[1]}:null;
+  const mk=drawEarth(cx,cy,R,t,focus);
+  if(mk){const[mx,my]=mk,pu=(t*1.2)%1;ix.strokeStyle=`rgba(240,166,182,${1-pu})`;ix.lineWidth=2;ix.beginPath();ix.arc(mx,my,5+pu*20,0,7);ix.stroke();
+    glow(mx,my,12,'#e8c36a99');ix.fillStyle='#e8c36a';ix.font='15px system-ui,sans-serif';ix.textAlign='center';ix.textBaseline='middle';ix.fillText('✦',mx,my);}
+  const cityName=city?city[0].split(' – ')[0]:'';
+  ix.fillStyle='#f5ece6';ix.font='18px "Marcellus SC",Georgia,serif';ix.textAlign='center';ix.textBaseline='top';ix.fillText(cityName,cx,cy+R+18);
 }
 function updateIntro(){
   const date=$('fDate').value,time=$('fTime').value;
@@ -369,7 +390,14 @@ function setStep(n){
   const f=['fName','fDate','fTime','fCity'][n];setTimeout(()=>{try{$(f).focus({preventScroll:true});}catch(e){}},60);
 }
 ['fName','fDate','fTime','fCity'].forEach(id=>{$(id).addEventListener('input',updateIntro);$(id).addEventListener('change',updateIntro);});
-$('fCity').addEventListener('change',e=>{$('manual').style.display=e.target.value==='manual'?'grid':'none';});
+function showCityList(){const list=$('cityList'),q=$('fCity').value,res=(window.searchCities?searchCities(q):[]);
+  if(!res.length||(window.SELCITY&&window.SELCITY[0]===q)){list.hidden=true;return;}
+  list.innerHTML=res.map(c=>{const i=window.CITIES.indexOf(c),pop=c[5]>=1000?(c[5]/1000).toFixed(1).replace('.',',')+' mi hab.':c[5]?c[5]+' mil hab.':'';return`<button type="button" data-i="${i}"><span>${esc(c[0])}</span><small>${pop}</small></button>`;}).join('');
+  list.hidden=false;
+  list.querySelectorAll('button').forEach(b=>b.onclick=()=>{window.SELCITY=window.CITIES[+b.dataset.i];$('fCity').value=window.SELCITY[0];list.hidden=true;$('iCity').innerHTML=`⌖ <b>${esc(window.SELCITY[0].split(' – ')[0])}</b> · ${Math.abs(window.SELCITY[1]).toFixed(2)}° ${window.SELCITY[1]<0?'S':'N'}, ${Math.abs(window.SELCITY[2]).toFixed(2)}° ${window.SELCITY[2]<0?'O':'L'}`;});}
+$('fCity').addEventListener('input',()=>{window.SELCITY=null;showCityList();});
+$('fCity').addEventListener('focus',showCityList);
+document.addEventListener('click',e=>{if(!e.target.closest('.citywrap')&&$('cityList'))$('cityList').hidden=true;});
 $('iBack').addEventListener('click',()=>{if(istep>0)setStep(istep-1);});
 $('iSkip').addEventListener('click',()=>{$('fTime').value='';updateIntro();setStep(3);});
 function iloop(now){
@@ -384,17 +412,17 @@ function iloop(now){
 }
 
 /* ---------- fluxo ---------- */
-function buildCities(){$('fCity').innerHTML=CITIES.map((c,i)=>`<option value="${i}">${esc(c[0])}</option>`).join('')+`<option value="manual">Outra (latitude/longitude)</option>`;$('fCity').value='0';}
 let PREMIUM=false,LASTCH=null,LASTNOME='';
 $('sw').addEventListener('click',()=>{PREMIUM=!PREMIUM;$('sw').classList.toggle('on',PREMIUM);if(LASTCH){$('out').innerHTML=compose(LASTNOME,LASTCH,PREMIUM);window.scrollTo(0,0);}});
 $('again').addEventListener('click',()=>{$('reading').style.display='none';$('onb').hidden=false;setStep(0);iLast=performance.now();cancelAnimationFrame(iraf);iraf=requestAnimationFrame(iloop);});
 function reveal(){
   const nome=$('fName').value.trim()||'Viajante',data=$('fDate').value,hora=$('fTime').value;
   if(!data){$('onbErr').textContent='Escolha a data de nascimento.';setStep(1);return;}
-  let lat,lon,tz;
-  if($('fCity').value==='manual'){lat=parseFloat($('fLat').value);lon=parseFloat($('fLon').value);tz='America/Sao_Paulo';if(hora&&(isNaN(lat)||isNaN(lon))){$('onbErr').textContent='Com a hora, informe latitude e longitude.';return;}}
-  else{const c=CITIES[+$('fCity').value];lat=c[1];lon=c[2];tz=c[3];}
-  const hasTime=!!hora,dt=zonedToUtc(data,hasTime?hora:'12:00',tz);
+  let lat=-15,lon=-47,tz='America/Sao_Paulo';
+  const city=window.findCity?findCity($('fCity').value):null;
+  if(city){lat=city[1];lon=city[2];tz=city[3];}
+  else if(hora){$('onbErr').textContent='Escolha uma cidade da lista para calcular o Ascendente.';return;}
+  const hasTime=!!(hora&&city),dt=zonedToUtc(data,hasTime?hora:'12:00',tz);
   if(isNaN(dt)){$('onbErr').textContent='Data ou hora inválida.';return;}
   const ch=computeChart(dt,lat,lon,hasTime);LASTCH=ch;LASTNOME=nome;
   cancelAnimationFrame(iraf);iraf=0;$('onb').hidden=true;$('reading').style.display='block';
@@ -406,7 +434,24 @@ $('onbForm').addEventListener('submit',e=>{
   if(istep<3){setStep(istep+1);return;}
   reveal();
 });
-buildCities();setStep(0);iLast=performance.now();iraf=requestAnimationFrame(iloop);
+/* ---------- tema musical cósmico (ambiente, gerado) ---------- */
+let AC=null,musicOn=true,MASTER=null;
+function initAudio(){if(AC)return;try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){return;}
+  MASTER=AC.createGain();MASTER.gain.value=0;MASTER.connect(AC.destination);
+  const lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=800;lp.Q.value=.4;lp.connect(MASTER);
+  const freqs=[110,164.81,220,261.63,329.63];
+  freqs.forEach((f,i)=>{const o=AC.createOscillator();o.type=i%2?'sine':'triangle';o.frequency.value=f;o.detune.value=(i-2)*5;
+    const g=AC.createGain();g.gain.value=.03;o.connect(g);g.connect(lp);
+    const lfo=AC.createOscillator();lfo.frequency.value=.03+i*.012;const la=AC.createGain();la.gain.value=.022;lfo.connect(la);la.connect(g.gain);
+    o.start();lfo.start();});
+  const flfo=AC.createOscillator();flfo.frequency.value=.018;const fg=AC.createGain();fg.gain.value=320;flfo.connect(fg);fg.connect(lp.frequency);flfo.start();
+  MASTER.gain.setTargetAtTime(musicOn?.09:0,AC.currentTime,2.5);
+}
+function setMusic(on){musicOn=on;$('mute').textContent=on?'🔊':'🔇';if(MASTER)MASTER.gain.setTargetAtTime(on?.09:0,AC.currentTime,1.2);}
+$('mute').addEventListener('click',()=>{if(!AC)initAudio();if(AC&&AC.state==='suspended')AC.resume();setMusic(!musicOn);});
+document.addEventListener('pointerdown',function once(){initAudio();if(AC&&AC.state==='suspended')AC.resume();document.removeEventListener('pointerdown',once);},{passive:true});
+
+setStep(0);iLast=performance.now();iraf=requestAnimationFrame(iloop);
 </script>
 </body>
 </html>
