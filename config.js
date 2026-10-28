@@ -6,5 +6,5 @@ window.ASTRO_CONFIG = {
   CHECKOUT_FUNDADORA: '',
   CHECKOUT_MENSAL: '',
   // E-mail de contato mostrado no rodapé
-  CONTATO_EMAIL: ''
+  CONTATO_EMAIL: 'contato.astrocenter@gmail.com'
 };
