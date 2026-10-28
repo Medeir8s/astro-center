@@ -1,0 +1,78 @@
+/**
+ * ASTRO CENTER · LISTA DE ESPERA
+ * Recebe os cadastros do site e grava na planilha "Astro Center — Lista de espera".
+ *
+ * COMO INSTALAR (uma vez só, uns 3 minutos):
+ * 1. Abra a planilha "Astro Center — Lista de espera" no Google Drive.
+ * 2. Menu Extensões > Apps Script.
+ * 3. Apague todo o código que aparecer e cole TODO este arquivo. Salve (Ctrl+S).
+ * 4. Clique em Implantar > Nova implantação.
+ *    - Engrenagem "Selecionar tipo" > App da Web
+ *    - Executar como: Eu
+ *    - Quem pode acessar: Qualquer pessoa
+ *    - Implantar. Autorize com a sua conta Google (Avançado > Acessar... é normal).
+ * 5. Copie o "URL do app da Web" (termina em /exec) e me mande,
+ *    ou cole em config.js no campo WAITLIST_URL.
+ */
+
+const COLUNAS = ['Data', 'Nome', 'E-mail', 'WhatsApp', 'Signo', 'Plano', 'Consentimento', 'Origem'];
+
+function doPost(e) {
+  const lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+  try {
+    const p = (e && e.parameter) || {};
+    const email = limpar(p.email, 120).toLowerCase();
+    const nome = limpar(p.nome, 80);
+    if (!nome || !/^\S+@\S+\.\S+$/.test(email) || p.consentimento !== 'sim') {
+      return resposta({ ok: false, erro: 'dados_invalidos' });
+    }
+    const aba = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    if (aba.getLastRow() === 0) aba.appendRow(COLUNAS);
+
+    // não duplica: se o e-mail já existe, só atualiza a linha
+    const ultima = aba.getLastRow();
+    if (ultima > 1) {
+      const emails = aba.getRange(2, 3, ultima - 1, 1).getValues().map(r => String(r[0]).toLowerCase());
+      const i = emails.indexOf(email);
+      if (i >= 0) {
+        aba.getRange(i + 2, 1, 1, COLUNAS.length).setValues([linha(p, nome, email)]);
+        return resposta({ ok: true, atualizado: true });
+      }
+    }
+    aba.appendRow(linha(p, nome, email));
+    return resposta({ ok: true });
+  } catch (err) {
+    return resposta({ ok: false, erro: String(err) });
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function doGet() {
+  return resposta({ ok: true, servico: 'Astro Center · lista de espera' });
+}
+
+function linha(p, nome, email) {
+  return [
+    new Date(),
+    nome,
+    email,
+    limpar(p.whatsapp, 20),
+    limpar(p.signo, 20),
+    limpar(p.plano, 20),
+    'sim',
+    limpar(p.origem, 200)
+  ];
+}
+
+// evita fórmulas injetadas (=, +, -, @) e corta textos longos
+function limpar(v, max) {
+  let s = String(v == null ? '' : v).trim().slice(0, max);
+  if (/^[=+\-@]/.test(s)) s = "'" + s;
+  return s;
+}
+
+function resposta(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
+}

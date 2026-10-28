@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Política de privacidade · Astro Center</title>
+<link rel="icon" type="image/png" href="app/icons/icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700;800&display=swap">
+<style>
+:root{--night:#150e44;--ink:#1c1030;--gold:#ffd84a;--text:#f4f0ff;--muted:#c3bbea;color-scheme:dark}
+body{margin:0;background:var(--night);color:var(--text);font-family:"Nunito",system-ui,sans-serif;font-size:17px;line-height:1.6}
+main{max-width:720px;margin:0 auto;padding-block:40px 60px;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:"Lilita One",system-ui,sans-serif;font-weight:400;letter-spacing:.3px;line-height:1.15}
+h1{font-size:36px;margin:0 0 6px}h2{font-size:22px;margin:32px 0 8px;color:var(--gold)}
+p,li{color:var(--muted)}a{color:var(--gold)}
+</style>
+</head>
+<body>
+<main>
+<p><a href="./">← Voltar ao Astro Center</a></p>
+<h1>Política de privacidade</h1>
+<p>Última atualização: 28 de outubro de 2026.</p>
+
+<h2>O que fica no seu aparelho</h2>
+<p>Nome, data, hora e cidade de nascimento, o mapa calculado e o progresso do jogo ficam salvos só no navegador do seu aparelho. Esses dados não são enviados para nenhum servidor do Astro Center. Se você limpar os dados do navegador, eles são apagados.</p>
+
+<h2>O que recebemos na lista de espera</h2>
+<p>Se você entrar na lista de espera, guardamos o que você preencher: nome, e-mail, WhatsApp (se informar), signo solar e o plano de interesse, junto com a data do cadastro. Usamos esses dados só para avisar sobre o lançamento, as vagas de fundadora e novidades do Astro Center.</p>
+
+<h2>Com quem compartilhamos</h2>
+<p>Não vendemos nem compartilhamos os seus dados. A lista fica guardada numa planilha do Google, e os pagamentos, quando existirem, são feitos pela plataforma de pagamento escolhida, que segue a própria política de privacidade.</p>
+
+<h2>Seus direitos</h2>
+<p>Pela Lei Geral de Proteção de Dados (LGPD), você pode pedir para ver, corrigir ou apagar os seus dados e sair da lista a qualquer momento. Basta responder qualquer mensagem nossa ou escrever para o contato abaixo.</p>
+
+<h2>Contato</h2>
+<p id="c">Escreva para o contato informado no rodapé do site.</p>
+</main>
+<script src="config.js"></script>
+<script>const e=(window.ASTRO_CONFIG||{}).CONTATO_EMAIL;if(e)document.getElementById('c').textContent='E-mail: '+e;</script>
+</body>
+</html>
