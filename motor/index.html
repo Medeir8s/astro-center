@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Astro Center — Motor da Leitura</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#160f33;--bg2:#1f1550;--card:#241a5c;--card2:#2d2170;--fg:#f4f0ff;--muted:#b9b0e4;--line:#3a2c84;--gold:#ffc24d;--pink:#f3a0c0;--accent:#8a6bff;--display:"Lilita One",system-ui,sans-serif;--body:"Nunito",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#2a1c6e 0%,var(--bg) 60%);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:24px 16px 64px}
+h1{font-family:var(--display);font-weight:400;font-size:30px;margin:0 0 2px;letter-spacing:.3px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+label{display:block;font-weight:700;font-size:13px;margin:0 0 4px;color:var(--muted)}
+input,select{width:100%;background:#180f3c;color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;font-size:15px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:12px}
+.btn{font-family:var(--display);font-size:19px;letter-spacing:.4px;color:#2a1240;border:none;border-radius:14px;padding:13px 18px;background:linear-gradient(#ffd877,var(--gold) 60%,#f3a81f);box-shadow:0 5px 0 #a9700c;cursor:pointer;width:100%}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #a9700c}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line);box-shadow:none;font-size:15px}
+.toggle{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px;color:var(--muted);font-size:14px;font-weight:700}
+.sw{width:46px;height:26px;border-radius:20px;background:#180f3c;border:1px solid var(--line);position:relative;cursor:pointer;flex:0 0 auto}
+.sw i{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--muted);transition:.2s}
+.sw.on{background:linear-gradient(90deg,var(--accent),var(--pink))}
+.sw.on i{left:22px;background:#fff}
+.err{color:#ff9ab0;font-weight:700;font-size:14px;margin-top:8px;min-height:1em}
+h2{font-family:var(--display);font-weight:400;font-size:22px;margin:26px 0 6px;color:var(--gold)}
+h3{font-family:var(--display);font-weight:400;font-size:17px;margin:16px 0 2px;color:var(--pink)}
+.lead{color:var(--fg);font-size:17px}
+.meta{color:var(--muted);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:0 0 4px}
+.chip{display:inline-block;background:#180f3c;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;color:var(--muted);margin:0 4px 4px 0}
+.chip.dig{color:var(--gold);border-color:#6a531f}
+.asp{border-left:3px solid var(--line);padding-left:12px;margin:8px 0}
+.asp b{color:var(--fg)}
+.asp .k{font-weight:800;color:var(--accent)}
+.lock{background:repeating-linear-gradient(45deg,#1c123f,#1c123f 10px,#20154a 10px,#20154a 20px);border:1px dashed var(--accent);border-radius:14px;padding:16px;text-align:center;color:var(--muted);margin-top:10px}
+.lock b{color:var(--gold)}
+.pt{margin-bottom:14px}
+.synth{background:#1b1147;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:8px}
+.foot{color:var(--muted);font-size:12px;text-align:center;margin-top:28px}
+.warn{background:#3a1d1d;border:1px solid #6a2e2e;color:#ffc3c3;border-radius:12px;padding:10px 12px;font-size:13px;margin-top:10px}
+hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Astro Center</h1>
+  <p class="sub">Motor da leitura do mapa · protótipo de teste</p>
+
+  <div class="card" id="form">
+    <div class="field"><label>Nome</label><input id="fNome" placeholder="Seu nome" value=""></div>
+    <div class="grid2">
+      <div class="field"><label>Data de nascimento</label><input id="fData" type="date"></div>
+      <div class="field"><label>Hora (opcional)</label><input id="fHora" type="time"></div>
+    </div>
+    <div class="field"><label>Cidade</label>
+      <select id="fCidade"></select>
+    </div>
+    <div id="manual" style="display:none">
+      <div class="grid3">
+        <div class="field"><label>Latitude</label><input id="fLat" type="number" step="0.0001" placeholder="-25.43"></div>
+        <div class="field"><label>Longitude</label><input id="fLon" type="number" step="0.0001" placeholder="-49.27"></div>
+        <div class="field"><label>Fuso (IANA)</label><input id="fTz" value="America/Sao_Paulo"></div>
+      </div>
+    </div>
+    <button class="btn" id="go">Gerar leitura</button>
+    <div class="err" id="err"></div>
+    <div class="toggle"><span>Grátis</span><div class="sw" id="sw"><i></i></div><span>Premium</span></div>
+    <div class="warn" id="noAstro" style="display:none">A biblioteca astronômica não carregou — as posições podem estar aproximadas.</div>
+  </div>
+
+  <div id="out"></div>
+  <p class="foot">Protótipo. Textos da biblioteca editável. Quíron ainda não calculado (requer efemérides próprias) — será adicionado.</p>
+</div>
+
+<script src="../app/astronomy.browser.min.js"></script>
+<script src="textos.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- constantes ---------- */
+const SIGNS=['Áries','Touro','Gêmeos','Câncer','Leão','Virgem','Libra','Escorpião','Sagitário','Capricórnio','Aquário','Peixes'];
+const GLYPH={sun:'☉',moon:'☽',asc:'AC',mc:'MC',mercury:'☿',venus:'♀',mars:'♂',jupiter:'♃',saturn:'♄',uranus:'♅',neptune:'♆',pluto:'♇',chiron:'⚷',lilith:'⚸',nnode:'☊',snode:'☋',fortune:'⊗'};
+const NOME={sun:'Sol',moon:'Lua',asc:'Ascendente',mc:'Meio do Céu',mercury:'Mercúrio',venus:'Vênus',mars:'Marte',jupiter:'Júpiter',saturn:'Saturno',uranus:'Urano',neptune:'Netuno',pluto:'Plutão',chiron:'Quíron',lilith:'Lilith',nnode:'Nodo Norte',snode:'Nodo Sul',fortune:'Parte da Fortuna'};
+const BODY={sun:'Sun',moon:'Moon',mercury:'Mercury',venus:'Venus',mars:'Mars',jupiter:'Jupiter',saturn:'Saturn',uranus:'Uranus',neptune:'Neptune',pluto:'Pluto'};
+const ELS=['fogo','terra','ar','água'];
+const MODN=['cardinal','fixa','mutável'];
+const ROMAN=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+const DOM={sun:[4],moon:[3],mercury:[2,5],venus:[1,6],mars:[0,7],jupiter:[8,11],saturn:[9,10],uranus:[10],neptune:[11],pluto:[7]};
+const EXA={sun:0,moon:1,mercury:5,venus:11,mars:9,jupiter:3,saturn:6};
+const RULER=['mars','venus','mercury','moon','sun','mercury','venus','pluto','jupiter','saturn','uranus','neptune']; // regente moderno por signo (0=Áries)
+const ORB=[10,5,3,10,5,3,10,5,3,10,5,3];
+const ASP_ORDER=['sun','moon','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto'];
+const WEIGHT={sun:3,moon:3,asc:3,mercury:2,venus:2,mars:2,jupiter:1,saturn:1,uranus:1,neptune:1,pluto:1,mc:1};
+
+/* cidades (capitais BR + opção manual) */
+const CITIES=[
+ ['Curitiba',-25.4284,-49.2733,'America/Sao_Paulo'],
+ ['São Paulo',-23.5505,-46.6333,'America/Sao_Paulo'],
+ ['Rio de Janeiro',-22.9068,-43.1729,'America/Sao_Paulo'],
+ ['Belo Horizonte',-19.9167,-43.9345,'America/Sao_Paulo'],
+ ['Porto Alegre',-30.0346,-51.2177,'America/Sao_Paulo'],
+ ['Florianópolis',-27.5949,-48.5482,'America/Sao_Paulo'],
+ ['Salvador',-12.9777,-38.5016,'America/Bahia'],
+ ['Recife',-8.0476,-34.8770,'America/Recife'],
+ ['Fortaleza',-3.7319,-38.5267,'America/Fortaleza'],
+ ['Brasília',-15.7939,-47.8828,'America/Sao_Paulo'],
+ ['Manaus',-3.1190,-60.0217,'America/Manaus'],
+ ['Belém',-1.4558,-48.4902,'America/Belem'],
+ ['Goiânia',-16.6869,-49.2648,'America/Sao_Paulo'],
+ ['Campo Grande',-20.4697,-54.6201,'America/Campo_Grande'],
+ ['Lisboa',38.7223,-9.1393,'Europe/Lisbon']
+];
+
+/* ---------- astronomia (portado do app) ---------- */
+const HAS_ASTRO=typeof window.Astronomy!=='undefined';
+function lonOf(body,d){
+  if(HAS_ASTRO){
+    if(body==='Sun')return Astronomy.SunPosition(d).elon;
+    if(body==='Moon')return Astronomy.EclipticGeoMoon(d).lon;
+    return Astronomy.Ecliptic(Astronomy.GeoVector(body,d,true)).elon;
+  }
+  const days=(d-Date.UTC(2000,0,1,12))/864e5;
+  const base={Sun:[280.46,.9856474],Moon:[218.32,13.176396],Mercury:[252.25,4.0923344],Venus:[181.98,1.6021302],Mars:[355.43,.5240208],Jupiter:[34.35,.0830853],Saturn:[50.08,.0334442],Uranus:[313.23,.0117],Neptune:[304.88,.006],Pluto:[238.9,.004]}[body];
+  return ((base[0]+base[1]*days)%360+360)%360;
+}
+const nm=x=>((x%360)+360)%360;
+const signOf=l=>Math.floor(nm(l)/30);
+const degIn=l=>nm(l)%30;
+const elOf=s=>ELS[s%4];
+const modOf=s=>MODN[s%3];
+function tzOffsetMin(tz,utcMs){try{const f=new Intl.DateTimeFormat('en-US',{timeZone:tz,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'});const p={};for(const x of f.formatToParts(new Date(utcMs)))p[x.type]=x.value;return Math.round((Date.UTC(+p.year,+p.month-1,+p.day,+p.hour%24,+p.minute,+p.second)-utcMs)/6e4);}catch(e){return -180;}}
+function zonedToUtc(date,time,tz){const [y,m,d]=date.split('-').map(Number),[hh,mm]=time.split(':').map(Number),local=Date.UTC(y,m-1,d,hh,mm);let g=local-tzOffsetMin(tz,local)*6e4;g=local-tzOffsetMin(tz,g)*6e4;return new Date(g);}
+function placidus(d,lat,lon){
+  const days=(d-Date.UTC(2000,0,1,12))/864e5,rad=Math.PI/180;
+  const ramc=nm(nm(280.46061837+360.98564736629*days)+lon),eps=(23.4393-3.563e-7*days)*rad,phi=lat*rad;
+  const ra2lon=ra=>nm(Math.atan2(Math.sin(ra*rad),Math.cos(ra*rad)*Math.cos(eps))/rad);
+  const asc=nm(Math.atan2(Math.cos(ramc*rad),-(Math.sin(ramc*rad)*Math.cos(eps)+Math.tan(phi)*Math.sin(eps)))/rad),mc=ra2lon(ramc);
+  const cusp=(f,noct)=>{let ra=noct?nm(ramc+180-90*f):nm(ramc+90*f);
+    for(let i=0;i<60;i++){const l=ra2lon(ra),dec=Math.asin(Math.sin(eps)*Math.sin(l*rad)),x=Math.tan(phi)*Math.tan(dec);if(Math.abs(x)>=1)return null;
+      const ad=Math.asin(x)/rad,nra=noct?nm(ramc+180-f*(90-ad)):nm(ramc+f*(90+ad));if(Math.abs(((nra-ra+540)%360)-180)<1e-8){ra=nra;break;}ra=nra;}
+    return ra2lon(ra);};
+  const c11=cusp(1/3,false),c12=cusp(2/3,false),c2=cusp(2/3,true),c3=cusp(1/3,true);
+  if([c11,c12,c2,c3].some(v=>v===null))return{asc,mc,cusps:Array.from({length:12},(_,i)=>nm(asc+30*i)),sys:'iguais'};
+  return{asc,mc,cusps:[asc,c2,c3,nm(mc+180),nm(c11+180),nm(c12+180),nm(asc+180),nm(c2+180),nm(c3+180),mc,c11,c12],sys:'Placidus'};
+}
+function houseOf(lon,cusps){if(!cusps)return null;const d=x=>nm(x);let h=0;for(let i=0;i<12;i++){const span=d(cusps[(i+1)%12]-cusps[i]);if(d(lon-cusps[i])<span){h=i;break;}}const nx=(h+1)%12;return d(cusps[nx]-lon)<=ORB[nx]?nx:h;}
+function dignity(k,s){if(!DOM[k])return null;if(DOM[k].includes(s))return'domicilio';if(EXA[k]===s)return'exaltacao';if(DOM[k].some(x=>(x+6)%12===s))return'exilio';if(EXA[k]!==undefined&&(EXA[k]+6)%12===s)return'queda';return null;}
+
+/* pontos extras */
+function meanNode(d){const T=(d-Date.UTC(2000,0,1,12))/36525/864e5;return nm(125.0445479-1934.1362891*T+0.0020754*T*T);}
+function meanLilith(d){const T=(d-Date.UTC(2000,0,1,12))/36525/864e5;return nm(83.3532465+4069.0137287*T-0.0103200*T*T+180);}
+
+/* ---------- motor ---------- */
+function computeChart(dt,lat,lon,hasTime){
+  const pos={};
+  for(const k in BODY)pos[k]=lonOf(BODY[k],dt);
+  pos.nnode=meanNode(dt);pos.snode=nm(pos.nnode+180);pos.lilith=meanLilith(dt);
+  let asc=null,mc=null,cusps=null,sys='sem hora';
+  if(hasTime){const p=placidus(dt,lat,lon);asc=p.asc;mc=p.mc;cusps=p.cusps;sys=p.sys;pos.asc=asc;pos.mc=mc;
+    // Parte da Fortuna: diurna se Sol acima do horizonte (casas 7-12 => índice 6..11)
+    const sh=houseOf(pos.sun,cusps),dia=sh>=6;
+    pos.fortune=nm(dia?(asc+pos.moon-pos.sun):(asc+pos.sun-pos.moon));
+  }
+  // velocidades (para fase do aspecto)
+  const dt2=new Date(+dt+3600e3),spd={};
+  for(const k of ASP_ORDER)spd[k]=((lonOf(BODY[k],dt2)-pos[k]+540)%360-180); // deg/hora aprox (assinado)
+  return {pos,asc,mc,cusps,sys,spd,hasTime,dt};
+}
+
+function aspects(ch){
+  const out=[];
+  for(let i=0;i<ASP_ORDER.length;i++)for(let j=i+1;j<ASP_ORDER.length;j++){
+    const a=ASP_ORDER[i],b=ASP_ORDER[j];
+    let sep=Math.abs(nm(ch.pos[a]-ch.pos[b]));if(sep>180)sep=360-sep;
+    const lum=(a==='sun'||a==='moon'||b==='sun'||b==='moon'),orbMax=lum?10:8;
+    const targets=[[0,'c'],[60,'h'],[90,'t'],[120,'h'],[180,'t']];
+    let best=null;for(const[ang,mode]of targets){const orb=Math.abs(sep-ang);if(orb<=orbMax&&(!best||orb<best.orb))best={ang,mode,orb};}
+    if(!best)continue;
+    const key=a+'-'+b,entry=TB.aspecto[key];if(!entry)continue;
+    const txt=entry[best.mode]||entry.c;if(!txt)continue;
+    // fase: aplicando se a separação diminui rumo ao alvo
+    const sepFut=(()=>{let s=Math.abs(nm((ch.pos[a]+ch.spd[a])-(ch.pos[b]+ch.spd[b])));if(s>180)s=360-s;return s;})();
+    const now=Math.abs(sep-best.ang),fut=Math.abs(sepFut-best.ang);
+    let fase=best.orb<1?'partil':(fut<now?'aplicativo':'separativo');
+    out.push({a,b,ang:best.ang,mode:best.mode,orb:best.orb,txt,fase});
+  }
+  return out.sort((x,y)=>x.orb-y.orb);
+}
+
+function signature(ch){
+  const el={fogo:0,terra:0,ar:0,'água':0},md={cardinal:0,fixa:0,'mutável':0};
+  for(const k in WEIGHT){const L=ch.pos[k];if(L==null)continue;const s=signOf(L);el[elOf(s)]+=WEIGHT[k];md[modOf(s)]+=WEIGHT[k];}
+  const topEl=Object.keys(el).reduce((a,b)=>el[a]>=el[b]?a:b);
+  const lowEl=Object.keys(el).reduce((a,b)=>el[a]<=el[b]?a:b);
+  const topMd=Object.keys(md).reduce((a,b)=>md[a]>=md[b]?a:b);
+  const lowMd=Object.keys(md).reduce((a,b)=>md[a]<=md[b]?a:b);
+  return {el,md,topEl,lowEl,topMd,lowMd,key:topEl+'-'+topMd};
+}
+
+function rulers(ch){
+  if(!ch.hasTime)return[];
+  const out=[];
+  for(let h=0;h<12;h++){const cuspSign=signOf(ch.cusps[h]);const rk=RULER[cuspSign];const rl=ch.pos[rk];const rh=houseOf(rl,ch.cusps);
+    out.push({house:h,ruler:rk,rulerHouse:rh,txt:TB.regente[h+1][rh]});}
+  return out;
+}
+
+/* ---------- composição ---------- */
+function first(t){const m=t.match(/[^.!?]*[.!?]/);return m?m[0].trim():t;}
+function ptLabel(k,L,ch){const s=signOf(L);const h=ch.cusps?houseOf(L,ch.cusps):null;const dg=dignity(k,s);
+  let chips=`<span class="chip">${GLYPH[k]} ${esc(NOME[k])} em ${SIGNS[s]} ${Math.floor(degIn(L))}°</span>`;
+  if(h!=null&&k!=='asc'&&k!=='mc')chips+=`<span class="chip">Casa ${ROMAN[h]}</span>`;
+  if(dg)chips+=`<span class="chip dig">${({domicilio:'Domicílio',exaltacao:'Exaltação',exilio:'Exílio',queda:'Queda'})[dg]}</span>`;
+  return chips;}
+function ponto(k,ch,premium,resumo){
+  const L=ch.pos[k];if(L==null)return'';
+  const s=signOf(L),h=ch.cusps?houseOf(L,ch.cusps):null,dg=dignity(k,s);
+  const tsign=(TB.signo[k]||[])[s]||'';
+  const tcasa=(h!=null&&TB.casa[k])?TB.casa[k][h]:'';
+  let body;
+  if(resumo&&!premium){body=`<p>${esc(first(tsign))} <span style="color:var(--muted)">…</span></p>`;}
+  else{body=`<p>${esc(tsign)}</p>`;if(tcasa)body+=`<p>${esc(tcasa)}</p>`;if(dg)body+=`<p style="color:var(--gold)">${esc(TB.dignidade[dg])}</p>`;}
+  return `<div class="pt"><div class="meta">${GLYPH[k]} ${esc(NOME[k])}</div>${ptLabel(k,L,ch)}${body}</div>`;
+}
+
+function compose(nome,ch,premium){
+  const sig=signature(ch);
+  let h='';
+  // abertura
+  const triadeTxt=ch.hasTime?`Sol em ${SIGNS[signOf(ch.pos.sun)]}, Lua em ${SIGNS[signOf(ch.pos.moon)]}, Ascendente em ${SIGNS[signOf(ch.pos.asc)]}`:`Sol em ${SIGNS[signOf(ch.pos.sun)]}, Lua em ${SIGNS[signOf(ch.pos.moon)]}`;
+  h+=`<h2>Leitura de ${esc(nome)}</h2><p class="lead">${esc(triadeTxt)}. Assinatura ${sig.topEl}/${sig.topMd}. ${ch.hasTime?'Casas em '+esc(ch.sys)+'.':'<b style="color:var(--pink)">Sem hora de nascimento: casas e Ascendente não calculados.</b>'}</p>`;
+  if(!ch.hasTime)h+=`<div class="warn">Informe hora e cidade para desbloquear Ascendente, Meio do Céu, casas, regências e Parte da Fortuna.</div>`;
+
+  // Tríade (grátis completa)
+  h+=`<h2>A tríade</h2>`;
+  h+=ponto('sun',ch,true,false);
+  h+=ponto('moon',ch,true,false);
+  if(ch.hasTime)h+=ponto('asc',ch,true,false);
+
+  // Assinatura + balanço
+  h+=`<h2>Assinatura astrológica</h2><div class="synth"><p>${esc(TB.assinatura[sig.key]||'')}</p>`;
+  h+=`<p>${esc(TB.balanco.elemento[sig.topEl].alto)}</p>`;
+  if(sig.el[sig.lowEl]===0||sig.lowEl!==sig.topEl)h+=`<p style="color:var(--muted)">${esc(TB.balanco.elemento[sig.lowEl].baixo)}</p>`;
+  h+=`<p>${esc(TB.balanco.modalidade[sig.topMd].alto)}</p></div>`;
+
+  // Planetas pessoais
+  h+=`<h2>Planetas pessoais</h2>`;
+  ['mercury','venus','mars'].forEach(k=>h+=ponto(k,ch,premium,true));
+
+  // Sociais e transpessoais
+  h+=`<h2>Planetas sociais e de geração</h2>`;
+  ['jupiter','saturn','uranus','neptune','pluto'].forEach(k=>h+=ponto(k,ch,premium,true));
+
+  // Pontos sensíveis
+  h+=`<h2>Pontos sensíveis</h2>`;
+  ['lilith','nnode','snode'].forEach(k=>h+=ponto(k,ch,premium,true));
+  if(ch.hasTime&&ch.pos.fortune!=null)h+=ponto('fortune',ch,premium,true);
+  if(ch.mc!=null)h+=ponto('mc',ch,premium,true);
+
+  if(!premium){
+    h+=`<div class="lock"><b>♛ Premium</b><br>Textos completos de cada planeta em signo e casa, aspectos entre os planetas, regências das casas e a síntese final do seu mapa.<br><span style="font-size:13px">(ative o Premium no topo para ver tudo)</span></div>`;
+    return h;
+  }
+
+  // Aspectos (premium)
+  const asp=aspects(ch);
+  h+=`<h2>Aspectos (${asp.length})</h2>`;
+  for(const a of asp){
+    const glz=`${GLYPH[a.a]} ${NOME[a.a]}`,glw=`${GLYPH[a.b]} ${NOME[a.b]}`;
+    const modeN={c:'Conjunção',h:'Harmônico',t:'Tenso'}[a.mode];
+    h+=`<div class="asp"><div><span class="k">${esc(glz)} · ${esc(glw)}</span> — ${modeN} (orbe ${a.orb.toFixed(1)}°, ${a.fase})</div><p>${esc(a.txt)}</p></div>`;
+  }
+
+  // Regências (premium)
+  if(ch.hasTime){
+    const rl=rulers(ch);
+    h+=`<h2>Regências das casas</h2>`;
+    for(const r of rl)h+=`<div class="pt"><div class="meta">Casa ${ROMAN[r.house]} · regente ${NOME[r.ruler]} na Casa ${ROMAN[r.rulerHouse]}</div><p>${esc(r.txt)}</p></div>`;
+  }
+
+  h+=`<hr><p class="lead">Essa é a sua leitura completa. Cada parte do céu no instante do seu nascimento, traduzida.</p>`;
+  return h;
+}
+
+/* ---------- UI ---------- */
+let PREMIUM=false, LASTCH=null, LASTNOME='';
+function buildCities(){const sel=$('fCidade');sel.innerHTML=CITIES.map((c,i)=>`<option value="${i}">${esc(c[0])}</option>`).join('')+`<option value="manual">Outra (informar manualmente)</option>`;sel.value='0';}
+$('fCidade').addEventListener('change',e=>{$('manual').style.display=e.target.value==='manual'?'block':'none';});
+$('sw').addEventListener('click',()=>{PREMIUM=!PREMIUM;$('sw').classList.toggle('on',PREMIUM);if(LASTCH)$('out').innerHTML=compose(LASTNOME,LASTCH,PREMIUM);});
+function run(){
+  $('err').textContent='';
+  const nome=($('fNome').value.trim()||'Viajante');
+  const data=$('fData').value, hora=$('fHora').value;
+  if(!data){$('err').textContent='Informe a data de nascimento.';return;}
+  let lat,lon,tz;
+  if($('fCidade').value==='manual'){lat=parseFloat($('fLat').value);lon=parseFloat($('fLon').value);tz=$('fTz').value.trim()||'America/Sao_Paulo';
+    if(hora&&(isNaN(lat)||isNaN(lon))){$('err').textContent='Com a hora, informe latitude e longitude.';return;}}
+  else{const c=CITIES[+$('fCidade').value];lat=c[1];lon=c[2];tz=c[3];}
+  const hasTime=!!hora;
+  const dt=zonedToUtc(data,hasTime?hora:'12:00',tz||'America/Sao_Paulo');
+  if(isNaN(dt)){$('err').textContent='Data ou hora inválida.';return;}
+  const ch=computeChart(dt,lat,lon,hasTime);
+  LASTCH=ch;LASTNOME=nome;
+  $('out').innerHTML=compose(nome,ch,PREMIUM);
+  $('out').scrollIntoView({behavior:'smooth',block:'start'});
+}
+$('go').addEventListener('click',run);
+buildCities();
+if(!HAS_ASTRO)$('noAstro').style.display='block';
+</script>
+</body>
+</html>
