@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Relatório · André Medeiros</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+<!-- Página de confirmação dos links dos e-mails do André (aprovar e enviar / gerar de novo).
+     O Supabase não mostra páginas HTML das funções, então a confirmação fica aqui e conversa com a função "aprovar" por JSON. -->
+<style>:root{color-scheme:dark}body{margin:0;background:#0c0d26;color:#f4f2ea;font-family:Poppins,system-ui,sans-serif;font-weight:300;text-align:center;padding:16vh 24px;line-height:1.6}
+h1{color:#ffe096;font-weight:700;font-size:28px;margin:0 0 12px;text-wrap:balance}p{max-width:460px;margin:0 auto 18px;color:#c9cbe8}
+button{background:#deb964;color:#0c0d26;border:0;border-radius:30px;padding:14px 30px;font:700 16px Poppins,system-ui,sans-serif;cursor:pointer;min-height:48px}
+button:disabled{opacity:.6}button:focus-visible{outline:3px solid #ffe096;outline-offset:3px}</style></head>
+<body>
+<h1 id="t">Carregando…</h1>
+<p id="m"></p>
+<p><button id="b" type="button" hidden></button></p>
+<script src="config.js"></script>
+<script>
+const q = new URLSearchParams(location.search), id = q.get('id'), tk = q.get('t');
+const cfg = window.RELATORIO_CONFIG || {};
+const url = (cfg.FUNCAO_PEDIDO || '').replace(/criar-pedido$/, 'aprovar');
+const T = document.getElementById('t'), M = document.getElementById('m'), B = document.getElementById('b');
+function mostrar(r) { T.textContent = r.titulo || 'Algo deu errado'; M.textContent = r.mensagem || ''; }
+async function chamar(confirmar) {
+  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, t: tk, confirmar }) });
+  return r.json().catch(() => ({ titulo: 'Algo deu errado', mensagem: 'Tente de novo em instantes.' }));
+}
+(async () => {
+  if (!id || !tk || !url) return mostrar({ titulo: 'Link inválido', mensagem: 'Faltam dados no link.' });
+  try {
+    const r = await chamar(false);
+    mostrar(r);
+    if (r.botao) { B.textContent = r.botao; B.hidden = false; }
+  } catch (e) { mostrar({ titulo: 'Sem conexão', mensagem: 'Confira a internet e abra o link de novo.' }); }
+})();
+B.addEventListener('click', async () => {
+  B.disabled = true; B.textContent = 'Um instante…';
+  try { const r = await chamar(true); mostrar(r); B.hidden = true; }
+  catch (e) { mostrar({ titulo: 'Sem conexão', mensagem: 'Confira a internet e tente de novo.' }); B.disabled = false; B.textContent = 'Tentar de novo'; }
+});
+</script>
+</body></html>
