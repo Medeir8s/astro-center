@@ -53,9 +53,14 @@ a{color:var(--gold2)}
 <label class="opt"><input type="checkbox" name="tema" value="trabalho_financas"><span><b>Trabalho e finanças</b><small>Saturno, Casa 10 e Casa 2</small></span><span class="p">R$ 29</span></label>
 <label class="opt"><input type="checkbox" name="tema" value="ferias"><span><b>Férias e viagens</b><small>Casas 5 e 9: lazer e horizontes</small></span><span class="p">R$ 29</span></label>
 <p class="nota" style="margin-top:2px">Quer mais de um tema? Cada tema a mais custa só <b>R$ 5</b>.</p>
+<label class="opt" style="margin-top:14px"><input type="checkbox" name="tema" value="infantil"><span><b>Mapa Infantil · Uma orientação aos pais</b><small>Livro ilustrado com o céu e os números da criança: como ela vê o pai e a mãe, irmãos, como aprende e conselhos práticos</small></span><span class="p">R$ 38</span></label>
+<p class="nota" style="margin-top:2px">O Mapa Infantil é escolhido sozinho, sem os outros temas.</p>
 
-<h2>2. Seus dados de nascimento</h2>
-<label class="f">Nome completo<input type="text" id="nome" autocomplete="name" maxlength="120"></label>
+<h2 id="tit2">2. Seus dados de nascimento</h2>
+<div id="sexoBox" hidden style="margin-bottom:12px"><span class="f" style="display:block;margin-bottom:6px">A criança é</span>
+<label class="chk" style="display:inline-flex;margin-right:18px"><input type="radio" name="sexo" value="menino"><span>Menino</span></label>
+<label class="chk" style="display:inline-flex"><input type="radio" name="sexo" value="menina"><span>Menina</span></label></div>
+<label class="f"><span id="rotNome">Nome completo</span><input type="text" id="nome" autocomplete="name" maxlength="120"></label>
 <div class="row">
 <label class="f">Data de nascimento<input type="date" id="data" min="1900-01-01" max="2026-12-31"></label>
 <label class="f">Hora de nascimento<input type="time" id="hora"></label>
@@ -81,10 +86,19 @@ a{color:var(--gold2)}
 const $=id=>document.getElementById(id);
 const temas=[...document.querySelectorAll('input[name=tema]')];
 let cidade=null;
-const preco=sel=>sel.length?((sel.includes('geral')?38:29)+5*(sel.length-1)):0;
+const preco=sel=>sel.includes('infantil')?38:(sel.length?((sel.includes('geral')?38:29)+5*(sel.length-1)):0);
 const marcados=()=>temas.filter(t=>t.checked).map(t=>t.value);
-function total(){$('total').textContent='R$ '+preco(marcados())}
-temas.forEach(t=>t.addEventListener('change',total));
+function total(){$('total').textContent='R$ '+preco(marcados());
+  const inf=marcados().includes('infantil');
+  $('sexoBox').hidden=!inf;
+  $('tit2').textContent=inf?'2. Dados de nascimento da criança':'2. Seus dados de nascimento';
+  $('rotNome').textContent=inf?'Nome completo da criança (como no registro)':'Nome completo';
+  $('btn').textContent=inf?'Pagar e receber o Mapa Infantil':'Pagar e receber meu relatório';
+  $('nome').autocomplete=inf?'off':'name'}
+// o Mapa Infantil não combina com os outros temas: marcar um desmarca o outro lado
+temas.forEach(t=>t.addEventListener('change',()=>{
+  if(t.checked)temas.forEach(o=>{if(o!==t&&((t.value==='infantil')!==(o.value==='infantil')))o.checked=false});
+  total()}));
 const q=new URLSearchParams(location.search).get('tema');
 if(q){const t=temas.find(x=>x.value===q);if(t){t.checked=true}}
 total();
@@ -101,6 +115,8 @@ $('f').addEventListener('submit',async e=>{
   e.preventDefault();const err=$('err');err.textContent='';
   const sel=marcados(),cfg=window.RELATORIO_CONFIG||{};
   if(!sel.length)return err.textContent='Escolha pelo menos um relatório.';
+  const inf=sel.includes('infantil'),sx=(document.querySelector('input[name=sexo]:checked')||{}).value;
+  if(inf&&!sx)return err.textContent='Marque se a criança é menino ou menina.';
   if($('nome').value.trim().length<3)return err.textContent='Digite seu nome completo.';
   if(!$('data').value)return err.textContent='Informe a data de nascimento.';
   if(!$('semhora').checked&&!$('hora').value)return err.textContent='Informe a hora de nascimento ou marque "Não sei a hora".';
@@ -111,12 +127,12 @@ $('f').addEventListener('submit',async e=>{
   const btn=$('btn');btn.disabled=true;btn.textContent='Abrindo o pagamento…';
   try{
     const r=await fetch(cfg.FUNCAO_PEDIDO,{method:'POST',headers:{'Content-Type':'application/json','apikey':cfg.SUPABASE_ANON,'Authorization':'Bearer '+cfg.SUPABASE_ANON},
-      body:JSON.stringify({temas:sel,nome:$('nome').value.trim(),email:$('email').value.trim(),data:$('data').value,hora:$('semhora').checked?null:$('hora').value,
+      body:JSON.stringify({temas:inf?['infantil_'+sx]:sel,nome:$('nome').value.trim(),email:$('email').value.trim(),data:$('data').value,hora:$('semhora').checked?null:$('hora').value,
         cidade:cidade.nome,lat:cidade.lat,lon:cidade.lon,fuso:cidade.fuso,aceite:true})});
     const j=await r.json();
     if(!r.ok||!j.pagamento)throw new Error(j.erro||'Erro ao abrir o pagamento.');
     location.href=j.pagamento;
-  }catch(x){err.textContent=x.message||'Erro. Tente de novo.';btn.disabled=false;btn.textContent='Pagar e receber meu relatório'}
+  }catch(x){err.textContent=x.message||'Erro. Tente de novo.';btn.disabled=false;total()}
 });
 if(new URLSearchParams(location.search).get('erro'))$('err').textContent='O pagamento não foi concluído. Você pode tentar de novo.';
 })();
