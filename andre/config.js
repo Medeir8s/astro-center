@@ -7,7 +7,7 @@ window.ANDRE_CONFIG = {
   RELATORIO_URL: '../relatorio/',
   // Assinaturas mensais: cole aqui os links de assinatura do Mercado Pago (ou outra plataforma).
   CHECKOUT_ESSENCIAL: 'https://mpago.la/1o1KA6B',
-  CHECKOUT_ACOMPANHAMENTO: '',
+  CHECKOUT_ACOMPANHAMENTO: 'https://mpago.la/13rDuZw',
   // Preços mostrados no site (por mês). Ajuste quando definir.
   PRECO_ESSENCIAL: 'R$ 9,90',
   PRECO_ACOMPANHAMENTO: 'R$ 79'
