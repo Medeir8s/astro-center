@@ -10,5 +10,14 @@ window.ANDRE_CONFIG = {
   CHECKOUT_ACOMPANHAMENTO: 'https://mpago.la/13rDuZw',
   // Preços mostrados no site (por mês). Ajuste quando definir.
   PRECO_ESSENCIAL: 'R$ 9,90',
-  PRECO_ACOMPANHAMENTO: 'R$ 79'
+  PRECO_ACOMPANHAMENTO: 'R$ 79',
+  // Calculadora de mapas (astrológico e numerológico). Cole aqui os links de assinatura mensal.
+  CHECKOUT_CALC_BASICA: '',
+  CHECKOUT_CALC_AVANCADA: '',
+  PRECO_CALC_BASICA: 'R$ 9,90',
+  PRECO_CALC_AVANCADA: 'R$ 38',
+  // Chave que valida os códigos de acesso. NÃO mude depois de emitir códigos (eles deixariam de valer).
+  // Senha da página gerar.html (só do André). Você pode trocar.
+  ACESSO_SENHA_ADMIN: '2U8eg2vX',
+  ACESSO_CHAVE: 'f53904c8e601d3e0'
 };

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Gerar código · Calculadora</title>
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#0c0d26;color:#f4f2ea;font:400 16px/1.6 system-ui,sans-serif;padding:24px 18px}
+main{max-width:480px;margin:0 auto;display:grid;gap:14px}
+h1{font-size:24px;color:#ffe096;margin:0}
+label{font-size:13px;color:#a6a8cf;display:block;margin-bottom:4px}
+input,select{width:100%;font:inherit;font-size:16px;color:#f4f2ea;background:#171a42;border:1px solid #2e3170;border-radius:12px;padding:11px 12px}
+button{font:600 16px system-ui,sans-serif;border:0;border-radius:40px;padding:13px 22px;background:#ffe096;color:#0c0d26;cursor:pointer}
+.cod{font:700 24px/1.3 ui-monospace,monospace;letter-spacing:.06em;background:#171a42;border:1.5px solid #deb964;border-radius:14px;padding:16px;text-align:center;word-break:break-all}
+.msg{background:#171a42;border:1px solid #2e3170;border-radius:12px;padding:12px;font-size:15px;white-space:pre-wrap}
+.err{color:#ff8a9a}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>Gerar código de acesso</h1>
+<div id="login"><label for="sen">Senha do André</label><input type="password" id="sen" autocomplete="current-password"><p class="err" id="e"></p><button id="entrar" type="button">Entrar</button></div>
+<div id="app" hidden>
+  <div><label for="niv">Nível</label><select id="niv"><option value="B">Básica (R$ 9,90)</option><option value="A">Avançada (R$ 38)</option></select></div>
+  <div style="margin-top:12px"><label for="val">Vale até</label><input type="date" id="val"></div>
+  <p style="margin:12px 0"><button id="gera" type="button">Gerar código</button></p>
+  <div id="r" hidden><div class="cod" id="cod"></div>
+  <p style="margin:12px 0"><button id="cp" type="button">Copiar mensagem pronta</button></p>
+  <div class="msg" id="msg"></div></div>
+</div>
+</main>
+<script src="../config.js"></script>
+<script src="acesso.js"></script>
+<script>
+const C=window.ANDRE_CONFIG||{},$=i=>document.getElementById(i);
+/* A senha do André é a data dele no formato que ele escolher: troque aqui o texto em SENHA. */
+const SENHA=C.ACESSO_SENHA_ADMIN||'';
+function iso(d){return d.toISOString().slice(0,10);}
+(function(){const d=new Date(Date.now()-3*3600e3);d.setUTCDate(d.getUTCDate()+31);$('val').value=iso(d);})();
+$('entrar').onclick=()=>{if(!SENHA||$('sen').value!==SENHA){$('e').textContent='Senha incorreta.';return;}$('login').hidden=true;$('app').hidden=false;};
+$('gera').onclick=()=>{
+  const n=$('niv').value,v=$('val').value;if(!v)return;
+  const c=ACESSO.gerar(n,v,C.ACESSO_CHAVE||'');
+  const [y,m,d]=v.split('-'),nome=n==='A'?'Avançada':'Básica';
+  $('cod').textContent=c;$('r').hidden=false;
+  $('msg').textContent='Pagamento confirmado! Seu código da Calculadora ('+nome+'): '+c+'\nVale até '+d+'/'+m+'/'+y+'.\nAcesse: https://medeir8s.github.io/astro-center/andre/calculadora/ , digite o código no campo "Tenho um código" e calcule seu mapa. Qualquer dúvida, me chame por aqui.';
+};
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText($('msg').textContent);$('cp').textContent='Copiado!';}catch(e){const r=document.createRange();r.selectNodeContents($('msg'));getSelection().removeAllRanges();getSelection().addRange(r);}};
+</script>
+</body>
+</html>

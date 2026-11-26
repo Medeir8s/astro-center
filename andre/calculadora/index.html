@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Calculadora de Mapas · André Medeiros</title>
+<meta name="description" content="Calcule o seu mapa astral e o seu mapa numerológico, com interpretação básica ou avançada. Astrologia com André Medeiros.">
+<meta name="theme-color" content="#0c0d26">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<style>
+:root{--bg:#0c0d26;--card:#171a42;--card2:#1d2150;--line:#2e3170;--gold:#deb964;--gold2:#ffe096;--text:#f4f2ea;--muted:#a6a8cf;--rose:#ff8a9a;--ok:#8fe0b0;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{overflow-x:clip}
+body{margin:0;background:radial-gradient(1200px 700px at 50% -10%,#232766 0,var(--bg) 60%) fixed;color:var(--text);font-family:Poppins,system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.6}
+a{color:var(--gold2)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:0;z-index:20;background:rgba(12,13,38,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+header .wrap{display:flex;align-items:center;gap:12px;min-height:56px;flex-wrap:wrap;padding-block:6px}
+.brand{font-weight:700;color:var(--gold2);text-decoration:none;font-size:16px;margin-right:auto}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-weight:700;font-size:clamp(28px,5.5vw,42px);line-height:1.12;color:var(--gold2)}
+h2{font-weight:700;font-size:22px;color:var(--gold2);margin-top:26px}
+h3{font-weight:600;font-size:17px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.lead{color:var(--muted);font-size:17px;max-width:58ch}
+p{margin:0 0 10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 15px Poppins,system-ui,sans-serif;text-decoration:none;border-radius:40px;padding:12px 22px;background:var(--gold2);color:var(--bg);border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--gold2);border:1.5px solid var(--gold)}
+.btn.small{padding:8px 16px;font-size:13.5px}
+.hero{padding-block:40px 18px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:20px;min-width:0}
+.form{display:grid;gap:14px;margin-top:20px}
+.row{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+label{font-size:13px;font-weight:500;color:var(--muted);display:block;margin-bottom:4px}
+input[type=text],input[type=date],input[type=time]{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted);margin-top:6px}
+.chk input{width:18px;height:18px}
+.hint{font-size:12.5px;color:var(--muted)}
+.cw{position:relative}
+.cl{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;background:#12143a;border:1px solid var(--line);border-radius:12px;max-height:240px;overflow-y:auto}
+.cl button{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);color:var(--text);font:inherit;font-size:14.5px;padding:10px 12px;cursor:pointer}
+.cl button:last-child{border-bottom:0}
+.cl button:hover,.cl button:focus{background:var(--card2)}
+.cl small{color:var(--muted)}
+.err{color:var(--rose);font-weight:500;min-height:1.2em;margin:0;font-size:14px}
+/* acesso */
+.acesso{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:18px}
+.nivel{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:30px;padding:4px 14px;border:1px solid var(--line);color:var(--muted)}
+.nivel.n1{border-color:var(--gold);color:var(--gold)}
+.nivel.n2{border-color:var(--ok);color:var(--ok)}
+.codigo{display:flex;gap:8px;flex-wrap:wrap}
+.codigo input{width:190px;text-transform:uppercase}
+/* resultados */
+#res{padding-block:10px 60px}
+.tabs{display:flex;gap:8px;margin:26px 0 6px;flex-wrap:wrap}
+.tab{font:500 14.5px Poppins,system-ui,sans-serif;background:transparent;color:var(--muted);border:1.5px solid var(--line);border-radius:30px;padding:8px 18px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--gold);border-color:var(--gold);color:var(--bg);font-weight:600}
+.chip{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:500;color:var(--muted);margin:0 4px 4px 0}
+.chip.dig{color:var(--gold);border-color:#6a531f}
+.chip.m{color:var(--ok);border-color:#2f6a4a}
+.chip.c{color:var(--rose);border-color:#7a3a44}
+.meta{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.pt{padding:14px 0;border-bottom:1px solid #20245a}
+.pt:last-child{border-bottom:0}
+.pt p{color:#d9d8ee;font-size:15.5px}
+.asp{border-left:3px solid var(--line);padding-left:12px;margin:12px 0}
+.asp .k{font-weight:600;color:var(--gold2)}
+.num{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 10px;border-radius:14px;background:var(--bg);border:1.5px solid var(--gold);color:var(--gold2);font-weight:700;font-size:20px;margin-right:12px;flex:none}
+.nline{display:flex;align-items:center;margin-bottom:6px}
+.nline .t{font-weight:600}
+.nline .s{font-size:13px;color:var(--muted)}
+.lock{background:repeating-linear-gradient(45deg,#14173d,#14173d 10px,#171a45 10px,#171a45 20px);border:1.5px dashed var(--gold);border-radius:16px;padding:18px;margin-top:14px;text-align:center}
+.lock b{color:var(--gold2)}
+.lock p{color:var(--muted);font-size:14.5px}
+.lock .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.synth{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:8px}
+.warn{background:#3a1d2b;border:1px solid #6a2e44;color:#ffc3d0;border-radius:12px;padding:10px 12px;font-size:14px;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #20245a}
+th{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.tw{overflow-x:auto}
+.wheel{display:block;margin:12px auto 4px;max-width:100%;height:auto}
+.bib{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin:10px 0}
+.bib div{background:var(--bg);border:1px solid var(--line);border-radius:10px;text-align:center;padding:6px 0;font-size:12px;color:var(--muted)}
+.bib b{display:block;font-size:18px;color:var(--gold2)}
+.bib .z{opacity:.5}
+@media(max-width:480px){.bib{grid-template-columns:repeat(5,1fr)}}
+.foot{font-size:12.5px;color:var(--muted);text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="../">André Medeiros · Astrologia</a>
+  <a class="btn small ghost" href="../">Voltar ao site</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Calculadora de mapas</div>
+    <h1 style="margin-top:12px">Seu mapa astral e seu mapa numerológico, num só lugar.</h1>
+    <p class="lead" style="margin-top:14px">Preencha seus dados. O cálculo é grátis. A interpretação vem em dois níveis: básica e avançada.</p>
+  </section>
+
+  <form class="card form" id="f" novalidate>
+    <div><label for="nome">Nome completo (como está na certidão)</label><input type="text" id="nome" autocomplete="name" maxlength="90" placeholder="Ex.: Maria Clara de Souza Lima"></div>
+    <div class="row">
+      <div><label for="data">Data de nascimento</label><input type="date" id="data" min="1900-01-01"></div>
+      <div><label for="hora">Hora de nascimento</label><input type="time" id="hora"><label class="chk"><input type="checkbox" id="semhora"> Não sei a hora</label></div>
+    </div>
+    <div class="cw"><label for="cidade">Cidade de nascimento</label>
+      <input type="text" id="cidade" autocomplete="off" placeholder="Digite a cidade, ex.: Macapá, Curitiba, Lisboa" role="combobox" aria-autocomplete="list" aria-controls="cl">
+      <div class="cl" id="cl" role="listbox" hidden></div>
+      <span class="hint">Mais de 26 mil cidades. Precisa da hora e da cidade para calcular Ascendente e casas.</span></div>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn" type="submit">Calcular meus mapas</button>
+  </form>
+
+  <div class="acesso">
+    <span class="nivel" id="nivel">Cálculo grátis</span>
+    <form class="codigo" id="fc"><input type="text" id="cod" placeholder="Tenho um código" aria-label="Código de acesso" maxlength="20"><button class="btn small ghost" type="submit">Usar código</button></form>
+  </div>
+  <p class="err" id="errc" style="margin-top:6px"></p>
+
+  <section id="res" hidden aria-live="polite">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tA" aria-selected="true">Mapa astral</button>
+      <button class="tab" role="tab" id="tN" aria-selected="false">Numerologia</button>
+      <button class="tab" role="tab" id="tS" aria-selected="false">Síntese</button>
+    </div>
+    <div id="out"></div>
+  </section>
+
+  <p class="foot">Conteúdo de orientação e autoconhecimento. Não substitui aconselhamento médico, jurídico ou financeiro. Cidades: GeoNames (CC BY 4.0).</p>
+</main>
+
+<script src="../config.js"></script>
+<script src="../../app/astronomy.browser.min.js"></script>
+<script src="../../motor/cidades.js"></script>
+<script src="../../motor/textos.js"></script>
+<script src="astro-core.js"></script>
+<script src="numero.js"></script>
+<script src="acesso.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CFG=window.ANDRE_CONFIG||{};
+const first=t=>{const m=String(t).match(/[^.!?]*[.!?]/);return m?m[0].trim():t;};
+
+/* ---------- nível de acesso ---------- */
+let NIVEL=0,VALE='';
+function lerCodigo(){try{return localStorage.getItem('andre_calc_cod')||'';}catch(e){return '';}}
+function guardaCodigo(c){try{localStorage.setItem('andre_calc_cod',c);}catch(e){}}
+function aplicaNivel(v){
+  const n=$('nivel');
+  if(v&&v.ok){NIVEL=v.nivel;VALE=v.ate;n.textContent=(NIVEL===2?'Avançada':'Básica')+' · até '+v.ate;n.className='nivel n'+NIVEL;}
+  else{NIVEL=0;VALE='';n.textContent='Cálculo grátis';n.className='nivel';}
+}
+(function(){const c=lerCodigo();if(c){const v=ACESSO.validar(c,CFG.ACESSO_CHAVE||'');aplicaNivel(v);}})();
+$('fc').addEventListener('submit',e=>{e.preventDefault();const v=ACESSO.validar($('cod').value,CFG.ACESSO_CHAVE||'');
+  if(!v.ok){$('errc').textContent=v.motivo;return;}
+  $('errc').textContent='';guardaCodigo(v.codigo);aplicaNivel(v);$('cod').value='';if(LAST)render();});
+
+/* ---------- cidade ---------- */
+function listaCidades(){const l=$('cl'),q=$('cidade').value,res=searchCities(q);
+  if(!res.length||(window.SELCITY&&window.SELCITY[0]===q)){l.hidden=true;return;}
+  l.innerHTML=res.map(c=>{const i=CITIES.indexOf(c);return `<button type="button" data-i="${i}"><span>${esc(c[0])}</span><small>${c[5]>=1000?(c[5]/1000).toFixed(1).replace('.',',')+' mi':c[5]?c[5]+' mil':''}</small></button>`;}).join('');
+  l.hidden=false;
+  l.querySelectorAll('button').forEach(b=>b.onclick=()=>{window.SELCITY=CITIES[+b.dataset.i];$('cidade').value=SELCITY[0];l.hidden=true;});
+}
+$('cidade').addEventListener('input',()=>{window.SELCITY=null;listaCidades();});
+$('cidade').addEventListener('focus',listaCidades);
+document.addEventListener('click',e=>{if(!e.target.closest('.cw'))$('cl').hidden=true;});
+$('semhora').addEventListener('change',()=>{$('hora').disabled=$('semhora').checked;if($('semhora').checked)$('hora').value='';});
+
+/* ---------- cálculo ---------- */
+let LAST=null,ABA='A';
+$('f').addEventListener('submit',e=>{
+  e.preventDefault();
+  const nome=$('nome').value.trim(),data=$('data').value,hora=$('hora').value,sem=$('semhora').checked;
+  const er=$('err');er.textContent='';
+  if(nome.split(/\s+/).length<2){er.textContent='Digite o nome completo, com sobrenome. A numerologia usa todas as letras.';return;}
+  if(!data){er.textContent='Escolha a data de nascimento.';return;}
+  const city=findCity($('cidade').value);
+  if(!sem&&!hora){er.textContent='Digite a hora de nascimento ou marque "Não sei a hora".';return;}
+  if(!sem&&!city){er.textContent='Escolha a cidade na lista para calcular o Ascendente e as casas.';return;}
+  let lat=-15,lon=-47,tz='America/Sao_Paulo';if(city){lat=city[1];lon=city[2];tz=city[3];}
+  const hasTime=!sem&&!!hora&&!!city,dt=zonedToUtc(data,hasTime?hora:'12:00',tz);
+  if(isNaN(dt)){er.textContent='Data ou hora inválida.';return;}
+  const hoje=new Date(Date.now()-3*3600*1000),ref={y:hoje.getUTCFullYear(),m:hoje.getUTCMonth()+1,d:hoje.getUTCDate()};
+  const ch=computeChart(dt,lat,lon,hasTime),nu=NUM.calcular(nome,data,ref);
+  LAST={nome,ch,nu,city};ABA='A';render();
+  $('res').hidden=false;$('res').scrollIntoView({behavior:'smooth',block:'start'});
+});
+['tA','tN','tS'].forEach((id,i)=>$(id).addEventListener('click',()=>{ABA='ANS'[i];render();}));
+
+/* ---------- apresentação ---------- */
+function trava(txt){
+  const b=CFG.CHECKOUT_CALC_BASICA||CFG.CONTATO_URL||'#',a=CFG.CHECKOUT_CALC_AVANCADA||CFG.CONTATO_URL||'#';
+  return `<div class="lock"><b>${txt}</b><p>Assine e receba um código de acesso para liberar esta parte. Depois de pagar, mande o comprovante no Instagram do André e receba o código.</p>
+  <div class="cta"><a class="btn small" target="_blank" rel="noopener" href="${esc(b)}">Básica ${esc(CFG.PRECO_CALC_BASICA||'R$ 9,90')}/mês</a><a class="btn small ghost" target="_blank" rel="noopener" href="${esc(a)}">Avançada ${esc(CFG.PRECO_CALC_AVANCADA||'R$ 38')}/mês</a><a class="btn small ghost" target="_blank" rel="noopener" href="${esc(CFG.CONTATO_URL||'#')}">Falar com o André</a></div></div>`;
+}
+const BASICA='Interpretação básica e avançada do seu mapa',AVANC='Interpretação avançada';
+
+function roda(ch){
+  const S=340,c=S/2,R1=156,R2=128,R3=112,rot=ch.hasTime?(-ch.asc):0;
+  const ang=l=>((nm(l+rot))*Math.PI/180);
+  const px=(l,r)=>[c-Math.cos(ang(l))*r,c+Math.sin(ang(l))*r];
+  let s=`<svg class="wheel" viewBox="0 0 ${S} ${S}" width="${S}" height="${S}" role="img" aria-label="Roda do mapa astral"><circle cx="${c}" cy="${c}" r="${R1}" fill="#12143a" stroke="#2e3170"/><circle cx="${c}" cy="${c}" r="${R2}" fill="none" stroke="#2e3170"/><circle cx="${c}" cy="${c}" r="${R3}" fill="#0c0d26" stroke="#2e3170"/>`;
+  for(let i=0;i<12;i++){const [x1,y1]=px(i*30,R2),[x2,y2]=px(i*30,R1),[gx,gy]=px(i*30+15,(R1+R2)/2);
+    s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#2e3170"/><text x="${gx}" y="${gy}" fill="${ELCOL[elOf(i)]}" font-size="16" text-anchor="middle" dominant-baseline="central">${SG[i]}</text>`;}
+  if(ch.hasTime)for(let h=0;h<12;h++){const [x1,y1]=px(ch.cusps[h],R3),[x2,y2]=px(ch.cusps[h],R2);const [tx,ty]=px(ch.cusps[h]+((nm(ch.cusps[(h+1)%12]-ch.cusps[h]))/2),R3-12);
+    s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${h%3===0?'#deb964':'#2e3170'}" stroke-width="${h%3===0?1.4:1}"/><text x="${tx}" y="${ty}" fill="#6f729f" font-size="9" text-anchor="middle" dominant-baseline="central">${h+1}</text>`;}
+  const ks=['sun','moon','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto','nnode'];
+  if(ch.hasTime){ks.push('asc','mc');}
+  const pts=ks.map(k=>({k,l:ch.pos[k]})).sort((a,b)=>a.l-b.l);
+  pts.forEach((p,i)=>{p.lp=i&&p.l<pts[i-1].lp+7.5?pts[i-1].lp+7.5:p.l;});
+  for(const p of pts){const [x0,y0]=px(p.l,R3),[x,y]=px(p.lp,R3-30);
+    s+=`<line x1="${x0}" y1="${y0}" x2="${x}" y2="${y}" stroke="#444a8a" stroke-width=".6"/><text x="${x}" y="${y}" fill="${p.k==='asc'||p.k==='mc'?'#ff8a9a':'#ffe096'}" font-size="${p.k==='asc'||p.k==='mc'?10:15}" font-weight="600" text-anchor="middle" dominant-baseline="central">${GLYPH[p.k]}${p.k==='sun'||p.k==='moon'||['mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto'].includes(p.k)?T:''}</text>`;}
+  return s+'</svg>';
+}
+
+function tabelaPos(ch){
+  const ks=['sun','moon','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto','nnode','lilith'];if(ch.hasTime)ks.unshift('asc'),ks.splice(3,0,'mc');
+  let h='<div class="tw"><table><thead><tr><th>Ponto</th><th>Signo</th><th>Grau</th>'+(ch.hasTime?'<th>Casa</th>':'')+'</tr></thead><tbody>';
+  for(const k of ks){const L=ch.pos[k];if(L==null)continue;const s=signOf(L);
+    h+=`<tr><td>${GLYPH[k]} ${esc(NOME[k])}</td><td>${SG[s]} ${SIGNS[s]}</td><td>${Math.floor(degIn(L))}°${String(Math.floor((degIn(L)%1)*60)).padStart(2,'0')}'</td>${ch.hasTime?`<td>${k==='asc'?'I':k==='mc'?'X':ROMAN[houseOf(L,ch.cusps)]}</td>`:''}</tr>`;}
+  return h+'</tbody></table></div>';
+}
+function labelPt(k,L,ch){const s=signOf(L),h=ch.cusps?houseOf(L,ch.cusps):null,dg=dignity(k,s);
+  let c=`<span class="chip">${GLYPH[k]} ${esc(NOME[k])} em ${SIGNS[s]} ${Math.floor(degIn(L))}°</span>`;
+  if(h!=null&&k!=='asc'&&k!=='mc')c+=`<span class="chip">Casa ${ROMAN[h]}</span>`;
+  if(dg)c+=`<span class="chip dig">${({domicilio:'Domicílio',exaltacao:'Exaltação',exilio:'Exílio',queda:'Queda'})[dg]}</span>`;
+  return c;}
+function ponto(k,ch,full){
+  const L=ch.pos[k];if(L==null)return'';
+  const s=signOf(L),h=ch.cusps?houseOf(L,ch.cusps):null,dg=dignity(k,s);
+  const ts=(TB.signo[k]||[])[s]||'',tc=(h!=null&&TB.casa[k])?TB.casa[k][h]:'';
+  let b;
+  if(!full)b=`<p>${esc(first(ts))}</p>`;
+  else{b=`<p>${esc(ts)}</p>`;if(tc)b+=`<p>${esc(tc)}</p>`;if(dg)b+=`<p style="color:var(--gold2)">${esc(TB.dignidade[dg])}</p>`;}
+  return `<div class="pt"><div class="meta">${GLYPH[k]} ${esc(NOME[k])}</div>${labelPt(k,L,ch)}${b}</div>`;
+}
+
+function abaAstro(L){
+  const {nome,ch}=L,sig=signature(ch);let h='';
+  const tri=ch.hasTime?`Sol em ${SIGNS[signOf(ch.pos.sun)]}, Lua em ${SIGNS[signOf(ch.pos.moon)]}, Ascendente em ${SIGNS[signOf(ch.pos.asc)]}`:`Sol em ${SIGNS[signOf(ch.pos.sun)]}, Lua em ${SIGNS[signOf(ch.pos.moon)]}`;
+  h+=`<h2>Mapa astral de ${esc(nome.split(' ')[0])}</h2><p class="lead">${esc(tri)}. Casas: ${ch.hasTime?esc(ch.sys):'não calculadas (sem hora)'}.</p>`;
+  h+=roda(ch)+`<div class="card" style="margin-top:12px">${tabelaPos(ch)}</div>`;
+  if(!ch.hasTime)h+=`<div class="warn">Sem a hora e a cidade de nascimento não dá para calcular Ascendente, Meio do Céu e casas.</div>`;
+  if(NIVEL<1){h+=trava(BASICA);return h;}
+  h+=`<h2>A tríade</h2>`+ponto('sun',ch,true)+ponto('moon',ch,true)+(ch.hasTime?ponto('asc',ch,true):'');
+  h+=`<h2>Assinatura astrológica</h2><div class="synth"><p>${esc(TB.assinatura[sig.key]||'')}</p><p>${esc(TB.balanco.elemento[sig.topEl].alto)}</p>`;
+  if(sig.lowEl!==sig.topEl)h+=`<p style="color:var(--muted)">${esc(TB.balanco.elemento[sig.lowEl].baixo)}</p>`;
+  h+=`<p>${esc(TB.balanco.modalidade[sig.topMd].alto)}</p></div>`;
+  const full=NIVEL>=2;
+  h+=`<h2>Planetas pessoais</h2>`;['mercury','venus','mars'].forEach(k=>h+=ponto(k,ch,full));
+  h+=`<h2>Planetas sociais e de geração</h2>`;['jupiter','saturn','uranus','neptune','pluto'].forEach(k=>h+=ponto(k,ch,full));
+  h+=`<h2>Pontos sensíveis</h2>`;['lilith','nnode','snode'].forEach(k=>h+=ponto(k,ch,full));
+  if(ch.hasTime&&ch.pos.fortune!=null)h+=ponto('fortune',ch,full);
+  if(ch.mc!=null)h+=ponto('mc',ch,full);
+  if(!full){h+=trava(AVANC+': textos completos de cada planeta em signo e casa, aspectos e regências das casas');return h;}
+  const asp=aspects(ch);h+=`<h2>Aspectos (${asp.length})</h2>`;
+  for(const a of asp){const mn={c:'Conjunção',h:'Harmônico',t:'Tenso'}[a.mode];h+=`<div class="asp"><div><span class="k">${GLYPH[a.a]} ${esc(NOME[a.a])} · ${GLYPH[a.b]} ${esc(NOME[a.b])}</span> — ${mn} (orbe ${a.orb.toFixed(1)}°, ${a.fase})</div><p>${esc(a.txt)}</p></div>`;}
+  if(ch.hasTime){h+=`<h2>Regências das casas</h2>`;for(const r of rulers(ch))h+=`<div class="pt"><div class="meta">Casa ${ROMAN[r.house]} · regente ${esc(NOME[r.ruler])} na Casa ${ROMAN[r.rulerHouse]}</div><p>${esc(r.txt)}</p></div>`;}
+  return h;
+}
+
+function marcas(r,full){
+  let c='';for(const a of r.achados){c+=`<span class="chip ${a.tipo==='mestre'?'m':'c'}">${a.tipo==='mestre'?'Mestre':'Cármico'} ${a.n}${a.n>9&&a.tipo==='carmico'?'/'+NUM.red(a.n):''}</span>`;}return c;
+}
+function rotulo(r){const m=r.achados.find(a=>a.tipo==='mestre');return m?m.n+'/'+r.n:String(r.n);}
+function blocoDNA(chave,r,nivel){
+  const P=NUM.POS[chave],n=NUM.N[(r.achados.find(a=>a.tipo==='mestre')||{}).n]||NUM.N[r.n];
+  let h=`<div class="pt"><div class="nline"><span class="num">${rotulo(r)}</span><div><div class="t">${P.nome}</div><div class="s">${P.pergunta} · ${esc(n.nome)}</div></div></div>${marcas(r)}`;
+  if(nivel>=1){h+=`<p>${esc(P.intro)}</p><p>${esc(n.core)}</p>`;}
+  if(nivel>=2){
+    h+=`<p><b>Luz:</b> ${esc(n.luz)}</p><p><b>Sombra:</b> ${esc(n.sombra)}</p><p><b>Conselho:</b> ${esc(n.conselho)}</p>`;
+    for(const a of r.achados.filter(a=>a.tipo==='carmico')){const k=NUM.CARMICO[a.n];h+=`<p><b>${esc(k.nome)}.</b> ${esc(k.core)} <i>Lição:</i> ${esc(k.lic)} <i>Risco:</i> ${esc(k.risco)}</p>`;}
+    const ms=r.metodos.map(m=>`${m.nome}: ${m.cam.join(' → ')}`).join(' · ');h+=`<p class="hint">Como foi calculado: ${esc(ms)}.</p>`;
+  }
+  return h+'</div>';
+}
+function abaNumero(L){
+  const nu=L.nu;let h=`<h2>Mapa numerológico de ${esc(L.nome.split(' ')[0])}</h2><p class="lead">Método MMINA, tabela pitagórica. O DNA numerológico tem cinco posições. Números mestres e cármicos só aparecem nelas.</p>`;
+  h+=`<div class="card"><div class="tw"><table><thead><tr><th>Posição</th><th>Número</th><th>Marcas</th></tr></thead><tbody>`;
+  [['Alma','alma'],['Personalidade','pers'],['Missão de Vida','missao'],['Caminho de Vida','cv'],['Maturidade','maturidade']].forEach(([n,k])=>{h+=`<tr><td>${n}</td><td><b style="color:var(--gold2)">${rotulo(nu[k])}</b></td><td>${marcas(nu[k])||'<span class="hint">—</span>'}</td></tr>`;});
+  h+='</tbody></table></div></div>';
+  if(NIVEL<1){return h+trava(BASICA);}
+  h+=`<h2>Seu DNA numerológico</h2><div class="card">`+blocoDNA('alma',nu.alma,NIVEL)+blocoDNA('pers',nu.pers,NIVEL)+blocoDNA('missao',nu.missao,NIVEL)+blocoDNA('cv',nu.cv,NIVEL)+blocoDNA('mat',nu.maturidade,NIVEL)+'</div>';
+  if(NIVEL<2){return h+trava(AVANC+': luz e sombra de cada número, números cármicos, ciclos de vida, ano pessoal, essência e biblioteca cósmica');}
+  /* avançado */
+  h+=`<h2>Ano pessoal ${nu.anoRef}</h2><div class="synth"><div class="nline"><span class="num">${nu.anoPessoal}</span><div><div class="t">Ano pessoal ${nu.anoPessoal}</div></div></div><p>${esc(NUM.ANO[nu.anoPessoal])}</p></div>`;
+  const ar=nu.essencia;
+  h+=`<h2>Essência do momento</h2><div class="synth"><div class="nline"><span class="num">${ar}</span><div><div class="t">${esc(NUM.nomeArcano(ar))}</div><div class="s">Idade numerológica ${nu.idadeNum} + ano pessoal ${nu.anoPessoal} + letra ${nu.transitoAtual.letra} (${nu.transitoAtual.v}) = ${nu.essSoma}</div></div></div><p>${esc(NUM.ARC_TXT[ar]||'')}</p><p class="hint">Letra em trânsito: ${nu.transitoAtual.letra}, de ${nu.transitoAtual.ini} a ${nu.transitoAtual.fim} anos de idade.</p></div>`;
+  h+=`<h2>Fundamento e apoio</h2><div class="synth"><p><b>Fundamento da Vida ${nu.fundamento}</b> (primeira letra do nome). ${esc(NUM.FUND_TXT[nu.fundamento])}</p><p><b>Qualidade de Apoio ${nu.apoio}</b> (iniciais de cada nome, sem "de"). Pede atenção a ${esc(NUM.N[nu.apoio].chave)}: é o que sustenta você nos momentos difíceis.</p></div>`;
+  h+=`<h2>Apogeus, desafios e ciclos</h2><div class="card"><div class="tw"><table><thead><tr><th>Fase</th><th>Idade</th><th>Apogeu</th><th>Desafio</th></tr></thead><tbody>`;
+  nu.apogeus.forEach((a,i)=>{const d=nu.desafios[i];h+=`<tr><td>${i+1}º</td><td>${a.de} a ${a.ate==null?'em diante':a.ate}</td><td><b style="color:var(--gold2)">${a.n}</b> · ${esc(NUM.N[a.n].chave)}</td><td><b>${d.n}</b>${d.n===0?' · livre escolha':' · '+esc(NUM.N[d.n].chave)}</td></tr>`;});
+  h+=`</tbody></table></div><p class="hint" style="margin-top:8px">Ciclos: formativo até ${nu.ciclos[0].ate} anos, produtivo até 56, colheita depois. O primeiro apogeu termina em 36 menos o Caminho de Vida simples (${nu.cv.n}).</p></div>`;
+  h+=`<h2>Biblioteca cósmica</h2><div class="card"><p class="hint">Quantas vezes cada número aparece nas letras do nome.</p><div class="bib">`;
+  for(let i=1;i<=9;i++)h+=`<div class="${nu.cont[i]===0?'z':''}"><b>${nu.cont[i]}</b>${i}</div>`;
+  h+=`</div><p><b>Temperamento (mais frequente):</b> ${nu.dominantes.map(n=>n+' ('+NUM.BIB[n]+')').join(', ')}.</p>`;
+  h+=nu.virtudes.length?`<p><b>Virtudes (frequentes):</b> ${nu.virtudes.map(n=>n+' ('+NUM.BIB[n]+')').join(', ')}.</p>`:'';
+  h+=nu.ausentes.length?`<p><b>Carências (ausentes):</b> ${nu.ausentes.map(n=>n+' ('+NUM.BIB[n]+')').join(', ')}. São qualidades que a vida pede para você desenvolver com a prática.</p>`:'<p><b>Carências:</b> nenhuma, todos os números aparecem no nome.</p>';
+  h+='</div>';
+  return h;
+}
+
+function abaSintese(L){
+  const {ch,nu}=L;let h=`<h2>Síntese astro-numerológica</h2><p class="lead">Cada número tem um planeta regente. Aqui você vê onde esse planeta está no seu mapa.</p>`;
+  if(NIVEL<2)return h+trava(AVANC+': cruzamento do seu mapa astral com a sua numerologia');
+  const rows=[['Alma','alma'],['Personalidade','pers'],['Missão de Vida','missao'],['Caminho de Vida','cv'],['Maturidade','maturidade']];
+  const asp=aspects(ch);
+  h+='<div class="card">';
+  for(const [n,k] of rows){
+    const r=nu[k],mestre=r.achados.find(a=>a.tipo==='mestre');
+    const num=mestre?mestre.n:r.n,pl=NUM.REGENTE[num]||NUM.REGENTE[r.n];
+    const Lp=ch.pos[pl],s=signOf(Lp),hh=ch.cusps?houseOf(Lp,ch.cusps):null;
+    h+=`<div class="pt"><div class="nline"><span class="num">${rotulo(r)}</span><div><div class="t">${n}</div><div class="s">regida por ${esc(NOME[pl])}</div></div></div><p>${esc(NOME[pl])} está em <b>${SIGNS[s]}</b>${hh!=null?', na <b>Casa '+ROMAN[hh]+'</b>':''} no seu mapa. Isso mostra onde o tema do número ${rotulo(r)} aparece na prática da sua vida.</p>`;
+    h+=achadosAspectos(r,asp,pl);h+='</div>';
+  }
+  h+='</div><p class="hint" style="margin-top:10px">Regentes usados: 1 Sol, 2 Lua, 3 Júpiter, 4 Urano, 5 Mercúrio, 6 Vênus, 7 Netuno, 8 Saturno, 9 Marte, 11 Netuno, 22 Saturno. Números mestres e cármicos não são ligados a signos: a leitura vem dos aspectos do planeta regente.</p>';
+  return h;
+}
+function achadosAspectos(r,asp,plNum){
+  let h='';
+  for(const a of r.achados){
+    const pl=a.tipo==='mestre'?(NUM.REGENTE[a.n]):NUM.REGENTE_CARMICO[a.n];
+    const lista=asp.filter(x=>x.a===pl||x.b===pl).slice(0,3);
+    const nome=a.tipo==='mestre'?'Mestre '+a.n:'Cármico '+a.n;
+    h+=`<p><span class="chip ${a.tipo==='mestre'?'m':'c'}">${nome}</span> Investigamos pelo planeta ${esc(NOME[pl])}:</p>`;
+    if(!lista.length)h+=`<p class="hint">${esc(NOME[pl])} não forma aspectos exatos com os outros planetas neste mapa.</p>`;
+    for(const x of lista){const mn={c:'Conjunção',h:'Harmônico',t:'Tenso'}[x.mode];h+=`<div class="asp"><span class="k">${GLYPH[x.a]} ${esc(NOME[x.a])} · ${GLYPH[x.b]} ${esc(NOME[x.b])}</span> — ${mn} (orbe ${x.orb.toFixed(1)}°)<br><span style="color:#d9d8ee;font-size:14.5px">${esc(first(x.txt))}</span></div>`;}
+  }
+  return h;
+}
+
+function render(){
+  if(!LAST)return;
+  [['tA','A'],['tN','N'],['tS','S']].forEach(([id,k])=>$(id).setAttribute('aria-selected',String(ABA===k)));
+  $('out').innerHTML=ABA==='A'?abaAstro(LAST):ABA==='N'?abaNumero(LAST):abaSintese(LAST);
+}
+</script>
+</body>
+</html>
