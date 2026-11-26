@@ -6,9 +6,9 @@ window.ANDRE_CONFIG = {
   // Link do Relatório de Previsões 2027
   RELATORIO_URL: '../relatorio/',
   // Assinaturas mensais: cole aqui os links de assinatura do Mercado Pago (ou outra plataforma).
-  CHECKOUT_ESSENCIAL: '',
+  CHECKOUT_ESSENCIAL: 'https://mpago.la/1o1KA6B',
   CHECKOUT_ACOMPANHAMENTO: '',
   // Preços mostrados no site (por mês). Ajuste quando definir.
-  PRECO_ESSENCIAL: 'R$ 29',
+  PRECO_ESSENCIAL: 'R$ 9,90',
   PRECO_ACOMPANHAMENTO: 'R$ 79'
 };
