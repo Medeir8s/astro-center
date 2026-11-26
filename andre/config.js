@@ -12,8 +12,8 @@ window.ANDRE_CONFIG = {
   PRECO_ESSENCIAL: 'R$ 9,90',
   PRECO_ACOMPANHAMENTO: 'R$ 79',
   // Calculadora de mapas (astrológico e numerológico). Cole aqui os links de assinatura mensal.
-  CHECKOUT_CALC_BASICA: '',
-  CHECKOUT_CALC_AVANCADA: '',
+  CHECKOUT_CALC_BASICA: 'https://mpago.la/14aFxCx',
+  CHECKOUT_CALC_AVANCADA: 'https://mpago.la/2E1SfcJ',
   PRECO_CALC_BASICA: 'R$ 9,90',
   PRECO_CALC_AVANCADA: 'R$ 38',
   // Chave que valida os códigos de acesso. NÃO mude depois de emitir códigos (eles deixariam de valer).
