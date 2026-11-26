@@ -1,0 +1,1231 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Andre Medeiros Astrologia//Agenda//PT
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Agenda astrológica · André Medeiros
+X-WR-TIMEZONE:America/Sao_Paulo
+BEGIN:VEVENT
+UID:ev0-202611291125@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261129T112500Z
+DTEND:20261129T115500Z
+SUMMARY:Urano trígono Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev1-202612010608@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261201T060800Z
+DTEND:20261201T063800Z
+SUMMARY:Quarto Minguante em 9°03' de Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev2-202612040812@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261204T081200Z
+DTEND:20261204T084200Z
+SUMMARY:Vênus entra em Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev3-202612041928@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261204T192800Z
+DTEND:20261204T195800Z
+SUMMARY:Marte quadratura Urano
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev4-202612060833@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261206T083300Z
+DTEND:20261206T090300Z
+SUMMARY:Mercúrio entra em Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev5-202612090051@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261209T005100Z
+DTEND:20261209T012100Z
+SUMMARY:Lua Nova em 16°56' de Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev6-202612102331@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261210T233100Z
+DTEND:20261211T000100Z
+SUMMARY:Saturno volta a andar direto a 7°55' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev7-202612122217@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261212T221700Z
+DTEND:20261212T224700Z
+SUMMARY:Netuno volta a andar direto a 1°36' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev8-202612130056@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261213T005600Z
+DTEND:20261213T012600Z
+SUMMARY:Júpiter fica retrógrado a 27°01' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev9-202612170542@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261217T054200Z
+DTEND:20261217T061200Z
+SUMMARY:Quarto Crescente em 25°17' de Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev10-202612212050@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261221T205000Z
+DTEND:20261221T212000Z
+SUMMARY:Sol entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev11-202612240128@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261224T012800Z
+DTEND:20261224T015800Z
+SUMMARY:Lua Cheia em 2°13' de Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev12-202612251822@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261225T182200Z
+DTEND:20261225T185200Z
+SUMMARY:Mercúrio entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev13-202612301859@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20261230T185900Z
+DTEND:20261230T192900Z
+SUMMARY:Quarto Minguante em 9°05' de Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev14-202701070853@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270107T085300Z
+DTEND:20270107T092300Z
+SUMMARY:Vênus entra em Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev15-202701072024@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270107T202400Z
+DTEND:20270107T205400Z
+SUMMARY:Lua Nova em 17°18' de Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev16-202701101259@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270110T125900Z
+DTEND:20270110T132900Z
+SUMMARY:Marte fica retrógrado a 10°25' de Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev17-202701130605@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270113T060500Z
+DTEND:20270113T063500Z
+SUMMARY:Mercúrio entra em Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev18-202701150930@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270115T093000Z
+DTEND:20270115T100000Z
+SUMMARY:Urano sextil Netuno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev19-202701152034@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270115T203400Z
+DTEND:20270115T210400Z
+SUMMARY:Quarto Crescente em 25°27' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev20-202701200729@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270120T072900Z
+DTEND:20270120T075900Z
+SUMMARY:Sol entra em Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev21-202701221217@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270122T121700Z
+DTEND:20270122T124700Z
+SUMMARY:Lua Cheia em 2°14' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev22-202701291055@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270129T105500Z
+DTEND:20270129T112500Z
+SUMMARY:Quarto Minguante em 9°17' de Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev23-202702010125@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270201T012500Z
+DTEND:20270201T015500Z
+SUMMARY:Mercúrio entra em Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev24-202702031430@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270203T143000Z
+DTEND:20270203T150000Z
+SUMMARY:Vênus entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev25-202702061556@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270206T155600Z
+DTEND:20270206T162600Z
+SUMMARY:Eclipse solar anular · Lua Nova em 17°37' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev26-202702081229@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270208T122900Z
+DTEND:20270208T125900Z
+SUMMARY:Urano volta a andar direto a 1°40' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev27-202702091736@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270209T173600Z
+DTEND:20270209T180600Z
+SUMMARY:Mercúrio fica retrógrado a 5°58' de Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev28-202702140758@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270214T075800Z
+DTEND:20270214T082800Z
+SUMMARY:Quarto Crescente em 25°23' de Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev29-202702170633@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270217T063300Z
+DTEND:20270217T070300Z
+SUMMARY:Marte quadratura Urano
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev30-202702181215@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270218T121500Z
+DTEND:20270218T124500Z
+SUMMARY:Mercúrio entra em Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev31-202702182133@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270218T213300Z
+DTEND:20270218T220300Z
+SUMMARY:Sol entra em Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev32-202702202323@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270220T232300Z
+DTEND:20270220T235300Z
+SUMMARY:Eclipse lunar penumbral · Lua Cheia em 2°05' de Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev33-202702211413@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270221T141300Z
+DTEND:20270221T144300Z
+SUMMARY:Marte entra em Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev34-202702280516@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270228T051600Z
+DTEND:20270228T054600Z
+SUMMARY:Quarto Minguante em 9°22' de Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev35-202703010632@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270301T063200Z
+DTEND:20270301T070200Z
+SUMMARY:Vênus entra em Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev36-202703031232@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270303T123200Z
+DTEND:20270303T130200Z
+SUMMARY:Mercúrio volta a andar direto a 20°55' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev37-202703080929@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270308T092900Z
+DTEND:20270308T095900Z
+SUMMARY:Lua Nova em 17°34' de Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev38-202703151625@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270315T162500Z
+DTEND:20270315T165500Z
+SUMMARY:Quarto Crescente em 24°51' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev39-202703181001@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270318T100100Z
+DTEND:20270318T103100Z
+SUMMARY:Mercúrio entra em Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev40-202703221043@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270322T104300Z
+DTEND:20270322T111300Z
+SUMMARY:Lua Cheia em 1°35' de Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev41-202703260816@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270326T081600Z
+DTEND:20270326T084600Z
+SUMMARY:Vênus entra em Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev42-202703300053@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270330T005300Z
+DTEND:20270330T012300Z
+SUMMARY:Quarto Minguante em 9°06' de Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev43-202704011408@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270401T140800Z
+DTEND:20270401T143800Z
+SUMMARY:Marte volta a andar direto a 20°55' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev44-202704031259@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270403T125900Z
+DTEND:20270403T132900Z
+SUMMARY:Júpiter trígono Saturno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev45-202704062351@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270406T235100Z
+DTEND:20270407T002100Z
+SUMMARY:Lua Nova em 16°57' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev46-202704130211@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270413T021100Z
+DTEND:20270413T024100Z
+SUMMARY:Júpiter volta a andar direto a 16°59' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev47-202704132256@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270413T225600Z
+DTEND:20270413T232600Z
+SUMMARY:Quarto Crescente em 23°47' de Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev48-202704200717@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270420T071700Z
+DTEND:20270420T074700Z
+SUMMARY:Sol entra em Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev49-202704202227@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270420T222700Z
+DTEND:20270420T225700Z
+SUMMARY:Lua Cheia em 0°36' de Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev50-202704242218@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270424T221800Z
+DTEND:20270424T224800Z
+SUMMARY:Mercúrio entra em Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev51-202704282017@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270428T201700Z
+DTEND:20270428T204700Z
+SUMMARY:Quarto Minguante em 8°19' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev52-202705061058@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270506T105800Z
+DTEND:20270506T112800Z
+SUMMARY:Lua Nova em 15°42' de Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev53-202705081254@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270508T125400Z
+DTEND:20270508T132400Z
+SUMMARY:Plutão fica retrógrado a 7°10' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev54-202705090157@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270509T015700Z
+DTEND:20270509T022700Z
+SUMMARY:Mercúrio entra em Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev55-202705130443@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270513T044300Z
+DTEND:20270513T051300Z
+SUMMARY:Quarto Crescente em 22°13' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev56-202705141447@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270514T144700Z
+DTEND:20270514T151700Z
+SUMMARY:Marte entra em Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev57-202705142101@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270514T210100Z
+DTEND:20270514T213100Z
+SUMMARY:Vênus entra em Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev58-202705201059@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270520T105900Z
+DTEND:20270520T112900Z
+SUMMARY:Lua Cheia em 29°13' de Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev59-202705210618@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270521T061800Z
+DTEND:20270521T064800Z
+SUMMARY:Sol entra em Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev60-202705281357@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270528T135700Z
+DTEND:20270528T142700Z
+SUMMARY:Quarto Minguante em 7°01' de Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev61-202705281706@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270528T170600Z
+DTEND:20270528T173600Z
+SUMMARY:Mercúrio entra em Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev62-202705290214@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270529T021400Z
+DTEND:20270529T024400Z
+SUMMARY:Marte quadratura Urano
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev63-202706041940@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270604T194000Z
+DTEND:20270604T201000Z
+SUMMARY:Lua Nova em 13°58' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev64-202706061007@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270606T100700Z
+DTEND:20270606T103700Z
+SUMMARY:Urano sextil Netuno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev65-202706081232@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270608T123200Z
+DTEND:20270608T130200Z
+SUMMARY:Vênus entra em Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev66-202706101815@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270610T181500Z
+DTEND:20270610T184500Z
+SUMMARY:Mercúrio fica retrógrado a 6°21' de Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev67-202706111056@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270611T105600Z
+DTEND:20270611T112600Z
+SUMMARY:Quarto Crescente em 20°19' de Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev68-202706150808@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270615T080800Z
+DTEND:20270615T083800Z
+SUMMARY:Urano trígono Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev69-202706190044@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270619T004400Z
+DTEND:20270619T011400Z
+SUMMARY:Lua Cheia em 27°33' de Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev70-202706211410@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270621T141000Z
+DTEND:20270621T144000Z
+SUMMARY:Sol entra em Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev71-202706260719@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270626T071900Z
+DTEND:20270626T074900Z
+SUMMARY:Mercúrio entra em Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev72-202706270454@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270627T045400Z
+DTEND:20270627T052400Z
+SUMMARY:Quarto Minguante em 5°21' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev73-202706282356@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270628T235600Z
+DTEND:20270629T002600Z
+SUMMARY:Netuno sextil Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev74-202707030201@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270703T020100Z
+DTEND:20270703T023100Z
+SUMMARY:Vênus entra em Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev75-202707040302@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270704T030200Z
+DTEND:20270704T033200Z
+SUMMARY:Lua Nova em 11°57' de Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev76-202707041939@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270704T193900Z
+DTEND:20270704T200900Z
+SUMMARY:Mercúrio volta a andar direto a 27°28' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev77-202707092241@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270709T224100Z
+DTEND:20270709T231100Z
+SUMMARY:Netuno fica retrógrado a 6°39' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev78-202707101838@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270710T183800Z
+DTEND:20270710T190800Z
+SUMMARY:Quarto Crescente em 18°17' de Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev79-202707112315@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270711T231500Z
+DTEND:20270711T234500Z
+SUMMARY:Júpiter trígono Saturno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev80-202707121347@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270712T134700Z
+DTEND:20270712T141700Z
+SUMMARY:Mercúrio entra em Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev81-202707150540@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270715T054000Z
+DTEND:20270715T061000Z
+SUMMARY:Marte entra em Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev82-202707181544@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270718T154400Z
+DTEND:20270718T161400Z
+SUMMARY:Eclipse lunar penumbral · Lua Cheia em 25°48' de Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev83-202707230104@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270723T010400Z
+DTEND:20270723T013400Z
+SUMMARY:Sol entra em Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev84-202707251524@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270725T152400Z
+DTEND:20270725T155400Z
+SUMMARY:Marte trígono Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev85-202707260449@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270726T044900Z
+DTEND:20270726T051900Z
+SUMMARY:Júpiter entra em Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev86-202707261324@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270726T132400Z
+DTEND:20270726T135400Z
+SUMMARY:Marte oposição Netuno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev87-202707261654@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270726T165400Z
+DTEND:20270726T172400Z
+SUMMARY:Quarto Minguante em 3°29' de Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev88-202707271230@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270727T123000Z
+DTEND:20270727T130000Z
+SUMMARY:Vênus entra em Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev89-202707301659@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270730T165900Z
+DTEND:20270730T172900Z
+SUMMARY:Marte trígono Urano
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev90-202708021005@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270802T100500Z
+DTEND:20270802T103500Z
+SUMMARY:Eclipse solar total · Lua Nova em 9°55' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev91-202708021052@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270802T105200Z
+DTEND:20270802T112200Z
+SUMMARY:Mercúrio entra em Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev92-202708090454@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270809T045400Z
+DTEND:20270809T052400Z
+SUMMARY:Quarto Crescente em 16°24' de Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev93-202708091805@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270809T180500Z
+DTEND:20270809T183500Z
+SUMMARY:Saturno fica retrógrado a 27°52' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev94-202708170443@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270817T044300Z
+DTEND:20270817T051300Z
+SUMMARY:Mercúrio entra em Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev95-202708170728@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270817T072800Z
+DTEND:20270817T075800Z
+SUMMARY:Eclipse lunar penumbral · Lua Cheia em 24°11' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev96-202708201942@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270820T194200Z
+DTEND:20270820T201200Z
+SUMMARY:Vênus entra em Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev97-202708230814@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270823T081400Z
+DTEND:20270823T084400Z
+SUMMARY:Sol entra em Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev98-202708250227@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270825T022700Z
+DTEND:20270825T025700Z
+SUMMARY:Quarto Minguante em 1°41' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev99-202708290735@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270829T073500Z
+DTEND:20270829T080500Z
+SUMMARY:Marte oposição Saturno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev100-202708311741@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270831T174100Z
+DTEND:20270831T181100Z
+SUMMARY:Lua Nova em 8°06' de Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev101-202709020152@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270902T015200Z
+DTEND:20270902T022200Z
+SUMMARY:Marte entra em Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev102-202709031136@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270903T113600Z
+DTEND:20270903T120600Z
+SUMMARY:Mercúrio entra em Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev103-202709071831@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270907T183100Z
+DTEND:20270907T190100Z
+SUMMARY:Quarto Crescente em 14°55' de Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev104-202709091838@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270909T183800Z
+DTEND:20270909T190800Z
+SUMMARY:Marte quadratura Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev105-202709101641@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270910T164100Z
+DTEND:20270910T171100Z
+SUMMARY:Júpiter quadratura Urano
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev106-202709140024@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270914T002400Z
+DTEND:20270914T005400Z
+SUMMARY:Vênus entra em Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev107-202709150909@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270915T090900Z
+DTEND:20270915T093900Z
+SUMMARY:Urano fica retrógrado a 9°57' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev108-202709152303@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270915T230300Z
+DTEND:20270915T233300Z
+SUMMARY:Lua Cheia em 22°52' de Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev109-202709200028@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270920T002800Z
+DTEND:20270920T005800Z
+SUMMARY:Marte sextil Júpiter
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev110-202709230601@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270923T060100Z
+DTEND:20270923T063100Z
+SUMMARY:Sol entra em Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev111-202709231020@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270923T102000Z
+DTEND:20270923T105000Z
+SUMMARY:Quarto Minguante em 0°10' de Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev112-202709270909@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270927T090900Z
+DTEND:20270927T093900Z
+SUMMARY:Mercúrio entra em Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev113-202709300236@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20270930T023600Z
+DTEND:20270930T030600Z
+SUMMARY:Lua Nova em 6°43' de Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev114-202710071147@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271007T114700Z
+DTEND:20271007T121700Z
+SUMMARY:Quarto Crescente em 13°59' de Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev115-202710071437@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271007T143700Z
+DTEND:20271007T150700Z
+SUMMARY:Mercúrio fica retrógrado a 4°55' de Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev116-202710080359@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271008T035900Z
+DTEND:20271008T042900Z
+SUMMARY:Vênus entra em Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev117-202710151346@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271015T134600Z
+DTEND:20271015T141600Z
+SUMMARY:Lua Cheia em 21°58' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev118-202710152313@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271015T231300Z
+DTEND:20271015T234300Z
+SUMMARY:Marte entra em Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev119-202710160736@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271016T073600Z
+DTEND:20271016T080600Z
+SUMMARY:Mercúrio entra em Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev120-202710161439@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271016T143900Z
+DTEND:20271016T150900Z
+SUMMARY:Netuno sextil Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev121-202710180352@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271018T035200Z
+DTEND:20271018T042200Z
+SUMMARY:Plutão volta a andar direto a 4°44' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev122-202710220931@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271022T093100Z
+DTEND:20271022T100100Z
+SUMMARY:Marte trígono Netuno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev123-202710221433@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271022T143300Z
+DTEND:20271022T150300Z
+SUMMARY:Marte sextil Plutão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev124-202710221729@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271022T172900Z
+DTEND:20271022T175900Z
+SUMMARY:Quarto Minguante em 29°05' de Câncer
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev125-202710231532@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271023T153200Z
+DTEND:20271023T160200Z
+SUMMARY:Sol entra em Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev126-202710281410@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271028T141000Z
+DTEND:20271028T144000Z
+SUMMARY:Mercúrio volta a andar direto a 19°18' de Libra
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev127-202710281806@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271028T180600Z
+DTEND:20271028T183600Z
+SUMMARY:Marte oposição Urano
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev128-202710291336@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271029T133600Z
+DTEND:20271029T140600Z
+SUMMARY:Lua Nova em 5°54' de Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev129-202711010734@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271101T073400Z
+DTEND:20271101T080400Z
+SUMMARY:Vênus entra em Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev130-202711060759@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271106T075900Z
+DTEND:20271106T082900Z
+SUMMARY:Quarto Crescente em 13°40' de Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev131-202711100026@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271110T002600Z
+DTEND:20271110T005600Z
+SUMMARY:Mercúrio entra em Escorpião
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev132-202711140325@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271114T032500Z
+DTEND:20271114T035500Z
+SUMMARY:Lua Cheia em 21°31' de Touro
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev133-202711151253@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271115T125300Z
+DTEND:20271115T132300Z
+SUMMARY:Marte trígono Saturno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev134-202711160406@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271116T040600Z
+DTEND:20271116T043600Z
+SUMMARY:Marte quadratura Júpiter
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev135-202711210048@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271121T004800Z
+DTEND:20271121T011800Z
+SUMMARY:Quarto Minguante em 28°27' de Leão
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev136-202711221316@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271122T131600Z
+DTEND:20271122T134600Z
+SUMMARY:Sol entra em Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev137-202711251159@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271125T115900Z
+DTEND:20271125T122900Z
+SUMMARY:Vênus entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev138-202711251838@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271125T183800Z
+DTEND:20271125T190800Z
+SUMMARY:Marte entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev139-202711280324@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271128T032400Z
+DTEND:20271128T035400Z
+SUMMARY:Lua Nova em 5°39' de Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev140-202711291023@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271129T102300Z
+DTEND:20271129T105300Z
+SUMMARY:Mercúrio entra em Sagitário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev141-202711302223@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271130T222300Z
+DTEND:20271130T225300Z
+SUMMARY:Marte quadratura Netuno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev142-202712060522@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271206T052200Z
+DTEND:20271206T055200Z
+SUMMARY:Quarto Crescente em 13°50' de Peixes
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev143-202712131608@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271213T160800Z
+DTEND:20271213T163800Z
+SUMMARY:Lua Cheia em 21°24' de Gêmeos
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev144-202712150906@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271215T090600Z
+DTEND:20271215T093600Z
+SUMMARY:Netuno volta a andar direto a 3°51' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev145-202712181158@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271218T115800Z
+DTEND:20271218T122800Z
+SUMMARY:Mercúrio entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev146-202712191840@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271219T184000Z
+DTEND:20271219T191000Z
+SUMMARY:Vênus entra em Aquário
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev147-202712200910@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271220T091000Z
+DTEND:20271220T094000Z
+SUMMARY:Quarto Minguante em 28°14' de Virgem
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev148-202712220242@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271222T024200Z
+DTEND:20271222T031200Z
+SUMMARY:Sol entra em Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev149-202712230400@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271223T040000Z
+DTEND:20271223T043000Z
+SUMMARY:Marte quadratura Saturno
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev150-202712240247@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271224T024700Z
+DTEND:20271224T031700Z
+SUMMARY:Saturno volta a andar direto a 21°01' de Áries
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev151-202712272012@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271227T201200Z
+DTEND:20271227T204200Z
+SUMMARY:Lua Nova em 5°50' de Capricórnio
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+BEGIN:VEVENT
+UID:ev152-202712310432@andreastrologia
+DTSTAMP:20261125T230000Z
+DTSTART:20271231T043200Z
+DTEND:20271231T050200Z
+SUMMARY:Marte trígono Júpiter
+DESCRIPTION:Horário de Brasília. Agenda astrológica de André Medeiros (@andreastrologia).
+END:VEVENT
+END:VCALENDAR
